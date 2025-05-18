@@ -1,0 +1,24 @@
+body {
+    background: #f8f9fa;
+    color: #222;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.container {
+    max-width: 900px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.btn-primary, .btn-success {
+    border-radius: 2rem;
+}

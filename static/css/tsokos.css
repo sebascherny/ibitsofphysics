@@ -1,0 +1,89 @@
+/* tsokos.css: Custom styles to match https://www.tsokosphysics.com/ */
+body {
+    background: #fff;
+    color: #222;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+body {
+    /* The background image is set inline in base.html */
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Overlay for legibility */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.7);
+    z-index: 0;
+    pointer-events: none;
+}
+
+header {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar {
+    background: transparent !important;
+    border-bottom: 2px solid #0074d9;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar .nav-pills .nav-link {
+    color: #0074d9 !important;
+    background: transparent !important;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navbar .nav-pills .nav-link.active {
+    background: #0074d9 !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+
+.navbar .nav-pills .nav-link:hover:not(.active) {
+    background: rgba(0,116,217,0.12) !important;
+    color: #0074d9 !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-weight: 600;
+    color: #222;
+}
+
+.container {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.btn-primary, .btn-success {
+    border-radius: 2rem;
+    background: #0074d9;
+    border: none;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background: #005fa3;
+}
+
+a {
+    color: #0074d9;
+}
+
+a:hover {
+    color: #005fa3;
+    text-decoration: underline;
+}
