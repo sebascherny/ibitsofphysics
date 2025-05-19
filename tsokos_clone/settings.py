@@ -84,14 +84,22 @@ WSGI_APPLICATION = "tsokos_clone.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv('DB_NAME', 'tsokosdb'),
-        "USER": os.getenv('DB_USER', 'tsokosuser'),
-        "PASSWORD": os.getenv('DB_PASSWORD', 'tsokospassword'),
-        "HOST": os.getenv('DB_HOST', 'localhost'),
-        "PORT": os.getenv('DB_PORT', '5432'),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+if os.getenv('USE_POSTGRES') in ("1", "true", "True"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv('DB_NAME', 'tsokosdb'),
+            "USER": os.getenv('DB_USER', 'tsokosuser'),
+            "PASSWORD": os.getenv('DB_PASSWORD', 'tsokospassword'),
+            "HOST": os.getenv('DB_HOST', 'localhost'),
+            "PORT": os.getenv('DB_PORT', '5432'),
+        }
+    }
 
 
 # Password validation
