@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'changeme')
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,ibitsofphysics.onrender.com,0.0.0.0').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,ibitsofphysics.onrender.com,0.0.0.0,www.ibitsofphysics.com').split(',')
 
 
 # Application definition
