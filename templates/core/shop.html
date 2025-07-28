@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Shop | IBits of Physics{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  {% if has_paid %}
+    <p>You already have access to all private videos.</p>
+  {% else %}
+    <h1>Unlock Private Videos</h1>
+    <p>Pay $40 to gain access to all private videos.</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-success">Pay with Stripe</button>
+    <a href="https://buy.stripe.com/test_cNicN52vL3k6de76T7a3u00" class="btn btn-primary" target="_blank">Pay with Stripe</a>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

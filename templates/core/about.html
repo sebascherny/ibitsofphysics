@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}About the Author | IBits of Physics{% endblock %}
+{% load site_content %}
+{% block title %}{% get_site_content "about_title" %}{% endblock %}
 {% block content %}
-<h2>About the author</h2>
-<p>......</p>
-<p>The first edition of <em>Physics for the IB Diploma</em> was published in 1998. At the time, it was the second textbook written specifically for the IB diploma, and the first in the sciences. This is the seventh edition of the textbook, now published by Cambridge University Press.</p>
-<p>He is also the author of the books <em>"Series and Differential Equations"</em>, <em>"Physics for the IB Diploma Exam Preparation Guide"</em> and about 20 research papers, mainly on Quantum Chromodynamics.</p>
+{% get_site_content "about_content" as about_content %}
+{{ about_content|safe }}
 {% endblock %}

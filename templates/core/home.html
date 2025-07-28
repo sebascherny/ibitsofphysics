@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock %}
+{% load site_content %}
+{% block title %}{% get_site_content "home_title" %}{% endblock %}
 {% block content %}
 <div class="container mt-5">
-  <h1>Welcome to IBits of Physics Resources</h1>
-  <p class="lead">Explore physics resources, shop for guides, and stay updated with our blog.</p>
-  <a href="/products/" class="btn btn-primary">Shop Now</a>
+  <h1>{% get_site_content "home_heading" %}</h1>
+  <p class="lead">{% get_site_content "home_lead" %}</p>
+  <a href="/products/" class="btn btn-primary">{% get_site_content "home_shop_button" %}</a>
 </div>
 {% endblock %}

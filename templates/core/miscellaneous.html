@@ -1,63 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Miscellaneous | IBits of Physics{% endblock %}
+{% load site_content %}
+{% block title %}{% get_site_content "miscellaneous_title" %}{% endblock %}
 {% block content %}
-<h2>Errata</h2>
-<ul>
-    <li><a href="https://www.ibitsofphysics.com/misc/0%20ERRATA.pdf" target="_blank">Errata</a></li>
-</ul>
-
-<h2>The Scientific Investigation (IA)</h2>
-<ul>
-    <li><a href="https://www.ibitsofphysics.com/misc/The%20Scientific%20Investigation.pdf" target="_blank">Guide to the Scientific Investigation</a></li>
-</ul>
-
-<h2>Prerequisites</h2>
-<ul>
-    <li><a href="https://www.ibitsofphysics.com/misc/Units,%20Measurement,%20Uncertainties,%20Vectors.pdf" target="_blank">Units, Measurement, Uncertainties, Vectors</a></li>
-</ul>
-
-<h2>Paper 1 Multiple Choice Exam Questions</h2>
-<ul>
-    <li><a href="https://www.ibitsofphysics.com/misc/On%20multiple%20choice%20questions.pdf" target="_blank">On multiple choice questions</a></li>
-</ul>
-
-<h2>Paper 2 Exam Questions</h2>
-<ul>
-    <li><a href="https://www.ibitsofphysics.com/misc/Topic%20A%20Paper%202%20Exam%20questions.pdf" target="_blank">Topic A: Paper 2 Exam Questions</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Topic%20B%20Paper%202%20Exam%20Questions.pdf" target="_blank">Topic B: Paper 2 Exam Questions</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Topic%20C%20Paper%202%20Exam%20Questions.pdf" target="_blank">Topic C: Paper 2 Exam Questions</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Topic%20D%20Paper%202%20Exam%20Questions.pdf" target="_blank">Topic D: Paper 2 Exam Questions</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Topic%20E%20Paper%202%20Exam%20Questions.pdf" target="_blank">Topic E: Paper 2 Exam Questions</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Sample%20Paper%202%20Long%20questions.pdf" target="_blank">Sample Paper 2 (20 mark) long questions</a></li>
-</ul>
-
-<h2>A basic practical program</h2>
-<ul>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20A%20P1.pdf" target="_blank">Unit A P1</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20A%20P2.pdf" target="_blank">Unit A P2</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20A%20P3.pdf" target="_blank">Unit A P3</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P1.pdf" target="_blank">Unit B P1</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P2.pdf" target="_blank">Unit B P2</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P3.pdf" target="_blank">Unit B P3</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P4.pdf" target="_blank">Unit B P4</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P5.pdf" target="_blank">Unit B P5</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P6.pdf" target="_blank">Unit B P6</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P7.pdf" target="_blank">Unit B P7</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20B%20P8.pdf" target="_blank">Unit B P8</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P1.pdf" target="_blank">Unit C P1</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P2.pdf" target="_blank">Unit C P2</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P3.pdf" target="_blank">Unit C P3</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P4.pdf" target="_blank">Unit C P4</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P5.pdf" target="_blank">Unit C P5</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P6.pdf" target="_blank">Unit C P6</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20C%20P7.pdf" target="_blank">Unit C P7</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20D%20P1.pdf" target="_blank">Unit D P1</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20E%20P1.pdf" target="_blank">Unit E P1</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20E%20P2.pdf" target="_blank">Unit E P2</a></li>
-    <li><a href="https://www.ibitsofphysics.com/misc/Unit%20E%20P3.pdf" target="_blank">Unit E P3</a></li>
-</ul>
-
-<h2>Problem of the week</h2>
+{% get_site_content "miscellaneous_content" as misc_content %}
+{{ misc_content|safe }}
+{% endblock %}
 <ul>
     <li><a href="https://www.ibitsofphysics.com/misc/1%20Kinematics.pdf" target="_blank">A Kinematics</a></li>
     <li><a href="https://www.ibitsofphysics.com/misc/2%20Forces.pdf" target="_blank">A & Forces</a></li>
@@ -94,4 +41,3 @@
     <li><a href="https://www.ibitsofphysics.com/misc/33%20Nuclear%20fission.pdf" target="_blank">E Nuclear fission</a></li>
     <li><a href="https://www.ibitsofphysics.com/misc/34%20Nuclear%20fusion.pdf" target="_blank">E Nuclear fusion</a></li>
 </ul>
-{% endblock %}

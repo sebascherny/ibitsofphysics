@@ -9,6 +9,8 @@ import stripe
 from decimal import Decimal
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+print(stripe.api_key)
+print(stripe.Balance.retrieve())
 
 @login_required
 def cart_view(request):
@@ -79,10 +81,48 @@ def stripe_webhook(request):
     if event['type'] == 'payment_intent.succeeded':
         intent = event['data']['object']
         order_id = intent['metadata'].get('order_id')
-        try:
-            order = Order.objects.get(id=order_id)
-            order.status = 'paid'
-            order.save()
-        except Order.DoesNotExist:
-            pass
+        user_id = intent['metadata'].get('user_id')
+        # Update order if present
+        if order_id:
+            try:
+                order = Order.objects.get(id=order_id)
+                order.status = 'paid'
+                order.save()
+            except Order.DoesNotExist:
+                pass
+        # Update user profile for private video pack purchase
+        if user_id:
+            from accounts.models import UserProfile
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            try:
+                user = User.objects.get(id=user_id)
+                profile, created = UserProfile.objects.get_or_create(user=user)
+                profile.has_paid = True
+                if intent.get('customer'):
+                    profile.stripe_customer_id = intent['customer']
+                profile.save()
+            except User.DoesNotExist:
+                pass
     return render(request, 'orders/webhook_received.html')
+
+
+
+def has_user_with_email_paid(email):
+    has_more = True
+    starting_after = None
+    matched_customers = []
+
+    while has_more:
+        customers = stripe.Customer.list(limit=100, starting_after=starting_after)
+        print(customers)
+        for customer in customers.data:
+            print(customer)
+            if customer.email == email:
+                matched_customers.append(customer)
+
+        has_more = customers.has_more
+        if has_more:
+            starting_after = customers.data[-1].id
+
+    return matched_customers
