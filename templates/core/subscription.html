@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Subscription - IBits of Physics{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Subscription</h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    {% if has_paid %}
+        <div class="alert alert-success">
+            <h4>✅ You have an active subscription!</h4>
+            <p>You have full access to all IBits of Physics content and materials.</p>
+        </div>
+    {% else %}
+        <div class="subscription-content">
+            {{ subscription_content|linebreaks }}
+        </div>
+        
+        <div class="payment-section mt-4">
+            <form method="post" class="text-center">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success btn-lg">
+                    Subscribe Now - $50 USD
+                </button>
+            </form>
+            <p class="text-center mt-2 text-muted">
+                <small>Secure payment processed by Stripe</small>
+            </p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

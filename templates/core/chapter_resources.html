@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category_display }} - IBits of Physics{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ category_display }}</h2>
+    
+    {% if resources %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Chapter</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resource in resources %}
+            <tr>
+                <td>{{ resource.chapter }}</td>
+                <td>{{ resource.description }}</td>
+                <td>
+                    {% if resource.video.is_private %}
+                        {% if has_paid %}
+                            <a href="{{ resource.video.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
+                                Watch Video
+                            </a>
+                        {% else %}
+                            <a href="/subscription/" class="btn btn-warning btn-sm">
+                                Subscribe to see
+                            </a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{{ resource.video.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
+                            Watch Video
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info">
+        <p>No resources available for this category yet.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

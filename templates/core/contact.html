@@ -4,7 +4,9 @@
 {% block content %}
 <div class="container mt-5">
   <h1>{% get_site_content "contact_heading" %}</h1>
-  <p>{% get_site_content "contact_intro" %}</p>
+  {% block contact_intro %}
+  {% get_site_content "contact_intro" %}
+  {% endblock %}
   <form method="post">
     {% csrf_token %}
     <div class="mb-3">

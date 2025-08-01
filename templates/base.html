@@ -13,10 +13,13 @@
 </header>
 <nav>
     <ul>
-        <li><a href="/"{% if request.path == '/' %} class="active"{% endif %}>Welcome</a></li>
-        <li><a href="/teacher-notes/"{% if request.path == '/teacher-notes/' %} class="active"{% endif %}>Teacher Notes</a></li>
-        <li><a href="/specimen-papers/"{% if request.path == '/specimen-papers/' %} class="active"{% endif %}>Specimen papers</a></li>
-        <li><a href="/miscellaneous/"{% if request.path == '/miscellaneous/' %} class="active"{% endif %}>Miscellaneous</a></li>
+        <li><a href="/audiobook-sl-hl/"{% if request.path == '/audiobook-sl-hl/' %} class="active"{% endif %}>Audiobook SL HL</a></li>
+        <li><a href="/audiobook-hl-only/"{% if request.path == '/audiobook-hl-only/' %} class="active"{% endif %}>Audiobook HL only</a></li>
+        <li><a href="/audiolibro-nm-ns/"{% if request.path == '/audiolibro-nm-ns/' %} class="active"{% endif %}>Audiolibro NM NS</a></li>
+        <li><a href="/audiolibro-ns-solo/"{% if request.path == '/audiolibro-ns-solo/' %} class="active"{% endif %}>Audiolibro NS sólo</a></li>
+        <li><a href="/notes-and-practice/"{% if request.path == '/notes-and-practice/' %} class="active"{% endif %}>Notes and practice</a></li>
+        <li><a href="/notas-y-practica/"{% if request.path == '/notas-y-practica/' %} class="active"{% endif %}>Notas y práctica</a></li>
+        <li><a href="/subscription/"{% if request.path == '/subscription/' %} class="active"{% endif %}>Subscription</a></li>
         <li><a href="/about-the-author/"{% if request.path == '/about-the-author/' %} class="active"{% endif %}>About the Author</a></li>
         <li><a href="/contact/"{% if request.path == '/contact/' %} class="active"{% endif %}>Contact</a></li>
         {% if user.is_authenticated %}

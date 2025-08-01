@@ -1,4 +1,5 @@
 from django import template
+from django.utils.safestring import mark_safe
 from core.models import SiteContent
 
 register = template.Library()
@@ -25,11 +26,16 @@ def get_site_content_json(key, language='en'):
 @register.simple_tag
 def get_site_content(key, language='en'):
     try:
-        return SiteContent.objects.get(key=key, language=language).content
+        content = SiteContent.objects.get(key=key, language=language).content
+        # Convert newlines to HTML line breaks and mark as safe
+        html_content = content.replace("\n", "<br/>")
+        return mark_safe(html_content)
     except SiteContent.DoesNotExist:
         if language != 'en':
             try:
-                return SiteContent.objects.get(key=key, language='en').content
+                content = SiteContent.objects.get(key=key, language='en').content
+                html_content = content.replace("\n", "<br/>")
+                return mark_safe(html_content)
             except SiteContent.DoesNotExist:
-                return ''
-        return ''
+                return mark_safe('')
+        return mark_safe('')

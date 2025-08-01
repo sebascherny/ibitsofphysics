@@ -1,17 +1,17 @@
 [
     {
         "title": "Test",
-        "vimeo_url": "https://player.vimeo.com/video/56282283",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
         "is_private": false
     },
     {
         "title": "Examen de Muestra 1",
-        "vimeo_url": "https://player.vimeo.com/video/1103275880/7e4fe06623",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
         "is_private": false
     },
     {
         "title": "Examen de Muestra 2 (Privado)",
-        "vimeo_url": "https://vimeo.com/1103275881/abcdef1234",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
         "is_private": true
     }
 ]
