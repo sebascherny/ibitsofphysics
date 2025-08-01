@@ -20,7 +20,6 @@
         <li><a href="/notes-and-practice/"{% if request.path == '/notes-and-practice/' %} class="active"{% endif %}>Notes and practice</a></li>
         <li><a href="/notas-y-practica/"{% if request.path == '/notas-y-practica/' %} class="active"{% endif %}>Notas y práctica</a></li>
         <li><a href="/subscription/"{% if request.path == '/subscription/' %} class="active"{% endif %}>Subscription</a></li>
-        <li><a href="/about-the-author/"{% if request.path == '/about-the-author/' %} class="active"{% endif %}>About the Author</a></li>
         <li><a href="/contact/"{% if request.path == '/contact/' %} class="active"{% endif %}>Contact</a></li>
         {% if user.is_authenticated %}
         <li><a href="/accounts/profile/">Profile</a></li>

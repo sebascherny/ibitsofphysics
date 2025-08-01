@@ -1,7 +1,0 @@
-{% extends 'base.html' %}
-{% load site_content %}
-{% block title %}{% get_site_content "about_title" %}{% endblock %}
-{% block content %}
-{% get_site_content "about_content" as about_content %}
-{{ about_content|safe }}
-{% endblock %}
