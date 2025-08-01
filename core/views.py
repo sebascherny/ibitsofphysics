@@ -12,9 +12,6 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 def home_view(request):
     return render(request, 'core/home.html')
 
-def about_view(request):
-    return render(request, 'core/about.html')
-
 def miscellaneous_view(request):
     return render(request, 'core/miscellaneous.html')
 

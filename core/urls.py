@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home_view, name='home'),
-    path('about-the-author/', views.about_view, name='about_the_author'),
     path('contact/', views.contact_view, name='contact'),
     path('audiobook-sl-hl/', views.chapter_resource_view, {'category': 'audiobook_sl_hl'}, name='audiobook_sl_hl'),
     path('audiobook-hl-only/', views.chapter_resource_view, {'category': 'audiobook_hl_only'}, name='audiobook_hl_only'),
