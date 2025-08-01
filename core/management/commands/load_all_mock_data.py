@@ -26,6 +26,11 @@ class Command(BaseCommand):
             action='store_true',
             help='Skip loading chapter resources',
         )
+        parser.add_argument(
+            '--skip-superuser',
+            action='store_true',
+            help='Skip creating superuser',
+        )
 
     def handle(self, *args, **options):
         self.stdout.write(
@@ -90,6 +95,23 @@ class Command(BaseCommand):
                 self.style.WARNING('⚠ Skipping chapter resources loading')
             )
 
+        # Step 4: Create superuser if environment variables are set
+        if not options['skip_superuser']:
+            self.stdout.write('Creating superuser from environment variables...')
+            try:
+                call_command('create_superuser_if_none')
+                self.stdout.write(
+                    self.style.SUCCESS('✓ Superuser creation completed')
+                )
+            except Exception as e:
+                self.stdout.write(
+                    self.style.WARNING(f'⚠ Superuser creation skipped: {e}')
+                )
+        else:
+            self.stdout.write(
+                self.style.WARNING('⚠ Skipping superuser creation')
+            )
+
         self.stdout.write(
             self.style.SUCCESS(
                 '\n🎉 All mock data loaded successfully!\n'
@@ -100,10 +122,13 @@ class Command(BaseCommand):
         # Provide helpful next steps
         self.stdout.write(
             self.style.HTTP_INFO(
-                '\nNext steps:\n'
+                'Next steps:\n'
                 '1. Run: python manage.py runserver\n'
                 '2. Visit: http://127.0.0.1:8000\n'
-                '3. Create a superuser: python manage.py createsuperuser\n'
-                '4. Access admin: http://127.0.0.1:8000/admin/\n'
+                '3. Access admin: http://127.0.0.1:8000/admin/\n'
+                '\nFor deployment, set these environment variables:\n'
+                '• DJANGO_ADMIN_USER=your_admin_username\n'
+                '• DJANGO_ADMIN_PASSWORD=your_secure_password\n'
+                '• DJANGO_ADMIN_EMAIL=your_email@domain.com (optional)\n'
             )
         )
