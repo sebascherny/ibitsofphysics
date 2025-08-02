@@ -21,16 +21,6 @@ class ContactMessage(models.Model):
         return f"Message from {self.name} <{self.email}>"
 
 
-class Video(models.Model):
-    title = models.CharField(max_length=255)
-    language = models.CharField(max_length=10, default='en')
-    vimeo_url = models.URLField()
-    is_private = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"{self.title} ({'Private' if self.is_private else 'Public'})"
-
-
 class ChapterResource(models.Model):
     CATEGORY_CHOICES = [
         ('audiobook_sl_hl', 'Audiobook SL HL'),
@@ -42,9 +32,12 @@ class ChapterResource(models.Model):
     ]
     
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    title = models.CharField(max_length=255, blank=True, null=True, default="")
+    language = models.CharField(max_length=10, default='en')
     chapter = models.CharField(max_length=100)
     description = models.TextField()
-    video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='chapter_resources')
+    vimeo_url = models.URLField(default="", blank=True, null=True)
+    is_private = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -53,4 +46,4 @@ class ChapterResource(models.Model):
         unique_together = ('category', 'chapter')
     
     def __str__(self):
-        return f"{self.get_category_display()}: {self.chapter}"
+        return f"{self.category}: {self.chapter}"

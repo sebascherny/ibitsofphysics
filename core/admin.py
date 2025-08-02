@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactMessage, SiteContent, Video, ChapterResource
+from .models import ContactMessage, SiteContent, ChapterResource
 
 @admin.register(SiteContent)
 class SiteContentAdmin(admin.ModelAdmin):
@@ -12,15 +12,9 @@ class ContactMessageAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'message')
 
 
-@admin.register(Video)
-class VideoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'language', 'vimeo_url', 'is_private')
-    search_fields = ('title', 'vimeo_url')
-
-
 @admin.register(ChapterResource)
 class ChapterResourceAdmin(admin.ModelAdmin):
-    list_display = ('category', 'chapter', 'video', 'order')
-    list_filter = ('category',)
-    search_fields = ('chapter', 'description', 'video__title')
+    list_display = ('category', 'chapter', 'title', 'vimeo_url', 'language', 'is_private', 'order')
+    list_filter = ('category', 'language', 'is_private')
+    search_fields = ('chapter', 'description', 'title', 'vimeo_url')
     ordering = ('category', 'order', 'chapter')

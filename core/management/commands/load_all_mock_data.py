@@ -17,11 +17,6 @@ class Command(BaseCommand):
             help='Skip loading site content',
         )
         parser.add_argument(
-            '--skip-videos',
-            action='store_true',
-            help='Skip loading videos',
-        )
-        parser.add_argument(
             '--skip-chapter-resources',
             action='store_true',
             help='Skip loading chapter resources',
@@ -55,25 +50,7 @@ class Command(BaseCommand):
                 self.style.WARNING('⚠ Skipping site content loading')
             )
 
-        # Step 2: Load videos
-        if not options['skip_videos']:
-            self.stdout.write('Loading videos...')
-            try:
-                call_command('load_mock_videos')
-                self.stdout.write(
-                    self.style.SUCCESS('✓ Videos loaded successfully')
-                )
-            except Exception as e:
-                self.stdout.write(
-                    self.style.ERROR(f'✗ Error loading videos: {e}')
-                )
-                return
-        else:
-            self.stdout.write(
-                self.style.WARNING('⚠ Skipping videos loading')
-            )
-
-        # Step 3: Load chapter resources
+        # Step 2: Load chapter resources
         if not options['skip_chapter_resources']:
             self.stdout.write('Loading chapter resources...')
             try:
@@ -95,7 +72,7 @@ class Command(BaseCommand):
                 self.style.WARNING('⚠ Skipping chapter resources loading')
             )
 
-        # Step 4: Create superuser if environment variables are set
+        # Step 3: Create superuser if environment variables are set
         if not options['skip_superuser']:
             self.stdout.write('Creating superuser from environment variables...')
             try:

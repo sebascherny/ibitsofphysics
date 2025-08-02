@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Video
+from .models import ChapterResource
 
-class VideoSerializer(serializers.ModelSerializer):
+class ChapterResourceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Video
-        fields = ['id', 'title', 'language', 'vimeo_url', 'is_private']
+        model = ChapterResource
+        fields = ['id', 'category', 'chapter', 'title', 'vimeo_url', 'language', 'is_private', 'order']

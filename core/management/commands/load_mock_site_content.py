@@ -8,7 +8,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-        json_path = os.path.join(base_dir, 'mock_site_content.json')
+        json_path = os.path.join(base_dir, 'mock_data/mock_site_content.json')
         if not os.path.exists(json_path):
             self.stderr.write(self.style.ERROR(f'File not found: {json_path}'))
             return

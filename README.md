@@ -17,6 +17,12 @@ python manage.py runserver
 
 ## Databases
 
+python manage.py load_mock_chapter_resources
+
+Or load everything with:
+
+python manage.py load_all_mock_data
+
 ## Render
 
 ## Docker

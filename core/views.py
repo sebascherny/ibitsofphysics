@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 import stripe
-from .models import ContactMessage, Video, ChapterResource, SiteContent
+from .models import ContactMessage, ChapterResource, SiteContent
 from accounts.models import UserProfile
 from orders.views import has_user_with_email_paid
 
@@ -14,12 +14,6 @@ def home_view(request):
 
 def miscellaneous_view(request):
     return render(request, 'core/miscellaneous.html')
-
-def specimen_papers_view(request):
-    return render(request, 'core/specimen_papers.html', {
-        'videos': Video.objects.all(),
-        'user_has_paid': request.user.profile.has_paid if request.user.is_authenticated else False
-    })
 
 def teacher_notes_view(request):
     return render(request, 'core/teacher_notes.html')
@@ -80,14 +74,14 @@ def chapter_resource_view(request, category):
         except UserProfile.DoesNotExist:
             has_paid = False
     
-    # Get all resources for this category
-    resources = ChapterResource.objects.filter(category=category)
+    # Get all chapter resources for this category
+    chapters = ChapterResource.objects.filter(category=category)
     
     # Get the display name for the category
     category_display = dict(ChapterResource.CATEGORY_CHOICES).get(category, category)
     
     context = {
-        'resources': resources,
+        'chapters': chapters,
         'category': category,
         'category_display': category_display,
         'has_paid': has_paid,

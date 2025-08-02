@@ -9,8 +9,7 @@ import stripe
 from decimal import Decimal
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-print(stripe.api_key)
-print(stripe.Balance.retrieve())
+
 
 @login_required
 def cart_view(request):
@@ -115,9 +114,7 @@ def has_user_with_email_paid(email):
 
     while has_more:
         customers = stripe.Customer.list(limit=100, starting_after=starting_after)
-        print(customers)
         for customer in customers.data:
-            print(customer)
             if customer.email == email:
                 matched_customers.append(customer)
 

@@ -6,7 +6,7 @@
 <div class="container">
     <h2>{{ category_display }}</h2>
     
-    {% if resources %}
+    {% if chapters %}
     <table class="table table-striped">
         <thead>
             <tr>
@@ -16,14 +16,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for resource in resources %}
+            {% for chapter in chapters %}
             <tr>
-                <td>{{ resource.chapter }}</td>
-                <td>{{ resource.description }}</td>
+                <td>{{ chapter.chapter }}</td>
+                <td>{{ chapter.description }}</td>
                 <td>
-                    {% if resource.video.is_private %}
+                    {% if chapter.is_private %}
                         {% if has_paid %}
-                            <a href="{{ resource.video.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
+                            <a href="{{ chapter.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
                                 Watch Video
                             </a>
                         {% else %}
@@ -32,7 +32,7 @@
                             </a>
                         {% endif %}
                     {% else %}
-                        <a href="{{ resource.video.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
+                        <a href="{{ chapter.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
                             Watch Video
                         </a>
                     {% endif %}
