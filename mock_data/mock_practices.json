@@ -1,0 +1,192 @@
+[
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "A1",
+        "description": "A projectile motion problem fully solved",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": false,
+        "order": 0
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "A2",
+        "description": "Air resistance and loops",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 10
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "A3",
+        "description": "The work of the frictional force",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 20
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "A4",
+        "description": "Translational and rotational equilibrium",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 30
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "A5",
+        "description": "Using spacetime diagrams",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 40
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "B1",
+        "description": "Mixing systems with phase changes",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 50
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "B2",
+        "description": "Thermal equilibrium and human intervention",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 60
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "B3",
+        "description": "PV = nRT, their 3 bits and SI constants",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 70
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "B4",
+        "description": "Gas cycles and graphs",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 80
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "B5",
+        "description": "Solving a full electric circuit",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 90
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "C1",
+        "description": "Energy in SHM",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 100
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "C2",
+        "description": "Two key graphs",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 110
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "C3",
+        "description": "Refraction and t.i.r.",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 120
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "C4",
+        "description": "Harmonics and electrons",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 130
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "C5",
+        "description": "Doppler and the Big Bang",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 140
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "D1",
+        "description": "Kepler, Tycho Brahe and Solar System data",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 150
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "D2",
+        "description": "Constant and variable fields",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 160
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "D3",
+        "description": "Cyclotrons",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 170
+    },
+    {
+        "category": "practices",
+        "title": "",
+        "language": "en",
+        "chapter": "D4",
+        "description": "Power plants and Physics",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 180
+    }
+]

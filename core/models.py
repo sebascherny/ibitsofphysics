@@ -27,8 +27,10 @@ class ChapterResource(models.Model):
         ('audiobook_hl_only', 'Audiobook HL only'),
         ('audiolibro_nm_ns', 'Audiolibro NM NS'),
         ('audiolibro_ns_solo', 'Audiolibro NS sólo'),
-        ('notes_and_practice', 'Notes and practice'),
-        ('notas_y_practica', 'Notas y práctica'),
+        ('notes', 'Notes'),
+        ('notas', 'Notas'),
+        ('practice', 'Practice'),
+        ('practica', 'Practica'),
     ]
     
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)

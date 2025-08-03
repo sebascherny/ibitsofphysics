@@ -21,19 +21,19 @@
                 <td>{{ chapter.chapter }}</td>
                 <td>{{ chapter.description }}</td>
                 <td>
-                    {% if chapter.is_private %}
-                        {% if has_paid %}
+                    {% if has_paid or not chapter.is_private %}
+                        {% if chapter.vimeo_url %}
                             <a href="{{ chapter.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
                                 Watch Video
                             </a>
                         {% else %}
-                            <a href="/subscription/" class="btn btn-warning btn-sm">
-                                Subscribe to see
+                            <a href="{{ chapter.drive_url }}" target="_blank" class="btn btn-primary btn-sm">
+                                Open PDF
                             </a>
                         {% endif %}
                     {% else %}
-                        <a href="{{ chapter.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
-                            Watch Video
+                        <a href="/subscription/" class="btn btn-warning btn-sm">
+                            Subscribe to see
                         </a>
                     {% endif %}
                 </td>

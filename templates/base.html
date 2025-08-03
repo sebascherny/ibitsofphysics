@@ -15,7 +15,8 @@
     <ul>
         <li><a href="/audiolibro-nm-ns/"{% if request.path == '/audiolibro-nm-ns/' %} class="active"{% endif %}>Audiolibro NM NS</a></li>
         <li><a href="/audiolibro-ns-solo/"{% if request.path == '/audiolibro-ns-solo/' %} class="active"{% endif %}>Audiolibro NS sólo</a></li>
-        <li><a href="/notas-y-practica/"{% if request.path == '/notas-y-practica/' %} class="active"{% endif %}>Notas y práctica</a></li>
+        <li><a href="/notas/"{% if request.path == '/notas/' %} class="active"{% endif %}>Notas</a></li>
+        <li><a href="/practicas/"{% if request.path == '/practicas/' %} class="active"{% endif %}>Prácticas</a></li>
         <li><a href="/suscripcion/"{% if request.path == '/suscripcion/' %} class="active"{% endif %}>Suscripción</a></li>
         <li><a href="/contacto/"{% if request.path == '/contacto/' %} class="active"{% endif %}>Contacto</a></li>
         {% if user.is_authenticated %}
@@ -31,7 +32,8 @@
     <ul>
         <li><a href="/audiobook-sl-hl/"{% if request.path == '/audiobook-sl-hl/' %} class="active"{% endif %}>Audiobook SL HL</a></li>
         <li><a href="/audiobook-hl-only/"{% if request.path == '/audiobook-hl-only/' %} class="active"{% endif %}>Audiobook HL only</a></li>
-        <li><a href="/notes-and-practice/"{% if request.path == '/notes-and-practice/' %} class="active"{% endif %}>Notes and practice</a></li>
+        <li><a href="/notes/"{% if request.path == '/notes/' %} class="active"{% endif %}>Notes</a></li>
+        <li><a href="/practices/"{% if request.path == '/practices/' %} class="active"{% endif %}>Practices</a></li>
         <li><a href="/subscription/"{% if request.path == '/subscription/' %} class="active"{% endif %}>Subscription</a></li>
         <li><a href="/contact/"{% if request.path == '/contact/' %} class="active"{% endif %}>Contact</a></li>
         {% if user.is_authenticated %}

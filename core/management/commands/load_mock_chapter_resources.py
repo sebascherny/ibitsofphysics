@@ -21,8 +21,10 @@ class Command(BaseCommand):
             'mock_audiobook_sl_hl.json',
             'mock_audiolibro_nm_ns.json',
             'mock_audiolibro_ns_solo.json',
-            'mock_notas_y_practica.json',
-            'mock_notes_and_practice.json',
+            'mock_notas.json',
+            'mock_notes.json',
+            'mock_practicas.json',
+            'mock_practices.json',
         ]:
             sample_data = json.load(open(os.path.join(os.path.dirname(__file__), "../../../mock_data", mock_file_name)))
             for chapter_data in sample_data:
@@ -30,7 +32,8 @@ class Command(BaseCommand):
                     category=chapter_data['category'],
                     chapter=chapter_data['chapter'],
                     description=chapter_data['description'],
-                    vimeo_url=chapter_data['vimeo_url'],
+                    vimeo_url=chapter_data.get('vimeo_url', ''),
+                    drive_url=chapter_data.get('drive_url', ''),
                     is_private=chapter_data['is_private'],
                     order=chapter_data.get('order', 0)
                 )

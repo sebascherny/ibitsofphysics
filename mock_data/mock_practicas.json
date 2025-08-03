@@ -1,0 +1,192 @@
+[
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "A1",
+        "description": "Un tiro oblicuo o proyectil resuelto completo",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": false,
+        "order": 0
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "A2",
+        "description": "Resistencia del aire y loops",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 10
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "A3",
+        "description": "El trabajo de las fuerzas disipativas",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 20
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "A4",
+        "description": "Equilibrio traslacional y rotacional",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 30
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "A5",
+        "description": "Aplicación de los diagramas de espacio-tiempo",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 40
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "B1",
+        "description": "Transferencia de energía con cambio de fase",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 50
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "B2",
+        "description": "Equilibrio térmico y la acción humana",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 60
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "B3",
+        "description": "PV = nRT, sus 3 bits y las constantes en el SI",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 70
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "B4",
+        "description": "Ciclos de gases y sus gráficos",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 80
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "B5",
+        "description": "Resolución de un circuito eléctrico completo",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 90
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "C1",
+        "description": "Energía en el M.A.S.",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 100
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "C2",
+        "description": "Dos gráficos claves",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 110
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "C3",
+        "description": "Refracción y reflexión total interna",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 120
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "C4",
+        "description": "Armónicos y electrones",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 130
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "C5",
+        "description": "Doppler y Big Bang",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 140
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "D1",
+        "description": "Kepler, Tycho Brahe y el Sistema Solar",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 150
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "D2",
+        "description": "Campos constantes y variables",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 160
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "D3",
+        "description": "Ciclotrones",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 170
+    },
+    {
+        "category": "practicas",
+        "title": "",
+        "language": "es",
+        "chapter": "D4",
+        "description": "Plantas eléctricas y un resumen de la física",
+        "drive_url": "https://docs.google.com/document/d/1K49EHAd9X8zUZYJjvVRZHrPmhXffhlXhzfIDveRNUtU/edit?tab=t.0",
+        "is_private": true,
+        "order": 180
+    }
+]

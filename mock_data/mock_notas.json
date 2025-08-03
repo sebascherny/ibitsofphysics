@@ -1,0 +1,192 @@
+[
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "A1",
+        "description": "Un tiro oblicuo o proyectil resuelto completo",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": false,
+        "order": 0
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "A2",
+        "description": "Resistencia del aire y loops",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 10
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "A3",
+        "description": "El trabajo de las fuerzas disipativas",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 20
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "A4",
+        "description": "Equilibrio traslacional y rotacional",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 30
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "A5",
+        "description": "Aplicación de los diagramas de espacio-tiempo",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 40
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "B1",
+        "description": "Transferencia de energía con cambio de fase",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 50
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "B2",
+        "description": "Equilibrio térmico y la acción humana",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 60
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "B3",
+        "description": "PV = nRT, sus 3 bits y las constantes en el SI",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 70
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "B4",
+        "description": "Ciclos de gases y sus gráficos",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 80
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "B5",
+        "description": "Resolución de un circuito eléctrico completo",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 90
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "C1",
+        "description": "Energía en el M.A.S.",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 100
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "C2",
+        "description": "Dos gráficos claves",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 110
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "C3",
+        "description": "Refracción y reflexión total interna",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 120
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "C4",
+        "description": "Armónicos y electrones",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 130
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "C5",
+        "description": "Doppler y Big Bang",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 140
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "D1",
+        "description": "Kepler, Tycho Brahe y el Sistema Solar",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 150
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "D2",
+        "description": "Campos constantes y variables",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 160
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "D3",
+        "description": "Ciclotrones",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 170
+    },
+    {
+        "category": "notas",
+        "title": "",
+        "language": "es",
+        "chapter": "D4",
+        "description": "Plantas eléctricas y un resumen de la física",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": true,
+        "order": 180
+    }
+]
