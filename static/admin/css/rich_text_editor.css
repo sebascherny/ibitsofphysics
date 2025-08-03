@@ -1,0 +1,101 @@
+/* Rich Text Editor Styles for Django Admin */
+
+.rich-text-toolbar {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 8px;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.toolbar-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    min-width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbar-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.toolbar-btn:active {
+    background: #dee2e6;
+    transform: translateY(1px);
+}
+
+.toolbar-separator {
+    color: #ccc;
+    margin: 0 4px;
+    font-weight: normal;
+}
+
+.rich-text-editor {
+    border-radius: 0 0 4px 4px !important;
+    border-top: none !important;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+}
+
+.rich-text-help {
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+}
+
+.rich-text-help small {
+    font-size: 11px;
+}
+
+/* Make the toolbar buttons more accessible */
+@media (max-width: 768px) {
+    .rich-text-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .toolbar-btn {
+        margin: 2px 0;
+        min-width: auto;
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .rich-text-toolbar {
+        background: #2b2b2b;
+        border-color: #444;
+    }
+    
+    .toolbar-btn {
+        background: #3c3c3c;
+        border-color: #555;
+        color: #ddd;
+    }
+    
+    .toolbar-btn:hover {
+        background: #4a4a4a;
+        border-color: #666;
+    }
+    
+    .rich-text-help {
+        color: #aaa;
+    }
+}

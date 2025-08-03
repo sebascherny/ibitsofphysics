@@ -6,7 +6,8 @@
         "chapter": "A4",
         "description": "Rigid body mechanics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": false
+        "is_private": false,
+        "order": 0
     },
     {
         "category": "audiolibro_ns_solo",
@@ -15,7 +16,8 @@
         "chapter": "A5",
         "description": "Galilean and special relativity",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 10
     },
     {
         "category": "audiolibro_ns_solo",
@@ -24,7 +26,8 @@
         "chapter": "B4",
         "description": "Thermodynamics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 20
     },
     {
         "category": "audiolibro_ns_solo",
@@ -33,7 +36,8 @@
         "chapter": "C1",
         "description": "Energy in SHM",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 30
     },
     {
         "category": "audiolibro_ns_solo",
@@ -42,7 +46,8 @@
         "chapter": "C3",
         "description": "Diffraction",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 40
     },
     {
         "category": "audiolibro_ns_solo",
@@ -51,7 +56,8 @@
         "chapter": "C5",
         "description": "The mathematics of Doppler effect",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 50
     },
     {
         "category": "audiolibro_ns_solo",
@@ -60,7 +66,8 @@
         "chapter": "D1",
         "description": "Gravitational potential and escape velocity",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 60
     },
     {
         "category": "audiolibro_ns_solo",
@@ -69,7 +76,8 @@
         "chapter": "D2",
         "description": "Electric potential",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 70
     },
     {
         "category": "audiolibro_ns_solo",
@@ -78,7 +86,8 @@
         "chapter": "D4",
         "description": "Induction",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 80
     },
     {
         "category": "audiolibro_ns_solo",
@@ -87,7 +96,8 @@
         "chapter": "E1",
         "description": "More Rutherford and Bohr",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 90
     },
     {
         "category": "audiolibro_ns_solo",
@@ -96,7 +106,8 @@
         "chapter": "E2",
         "description": "Quantum Physics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 100
     },
     {
         "category": "audiolibro_ns_solo",
@@ -105,6 +116,7 @@
         "chapter": "E3",
         "description": "The mathematics of radioactivity",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 110
     }
 ]

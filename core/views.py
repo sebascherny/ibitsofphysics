@@ -6,6 +6,7 @@ import stripe
 from .models import ContactMessage, ChapterResource, SiteContent
 from accounts.models import UserProfile
 from orders.views import has_user_with_email_paid
+from django.template.context_processors import csrf
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -99,6 +100,10 @@ def subscription_view(request):
     # Get subscription content
     try:
         subscription_content = SiteContent.objects.get(key='subscription', language='en').content
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_1__', f'{request.build_absolute_uri("/subscribe-1-year/")}')
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_2__', f'{request.build_absolute_uri("/subscribe-2-years/")}')
+        token = csrf(request)['csrf_token']
+        subscription_content = subscription_content.replace('__CSRF_TOKEN__', f'<input type="hidden" name="csrfmiddlewaretoken" value="{token}">')
     except SiteContent.DoesNotExist:
         subscription_content = "Subscription information not available."
     
@@ -138,6 +143,73 @@ def subscription_view(request):
     }
     
     return render(request, 'core/subscription.html', context)
+
+
+@login_required()
+def redirect_to_stripe_1_year(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    if user_profile.has_paid:
+        messages.info(request, 'You already have an active subscription!')
+        return redirect('/subscription/', context={'has_paid': True})
+    
+    try:
+        # Create Stripe checkout session
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': 'IBits of Physics 1 Year Subscription',
+                        'description': 'Full access to all physics content and materials',
+                    },
+                    'unit_amount': 7500,  # $75.00 in cents
+                },
+                'quantity': 1,
+            }],
+            mode='payment',
+            success_url=request.build_absolute_uri('/subscription/success/'),
+            cancel_url=request.build_absolute_uri('/subscription/'),
+            client_reference_id=str(request.user.id),
+        )
+        return redirect(session.url)
+    except Exception as e:
+        messages.error(request, f'Payment processing error: {str(e)}')
+        return redirect('subscription')
+
+
+@login_required()
+def redirect_to_stripe_2_years(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    if user_profile.has_paid:
+        messages.info(request, 'You already have an active subscription!')
+        return redirect('/subscription/', context={'has_paid': True})
+    
+    try:
+        # Create Stripe checkout session
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': 'IBits of Physics 2 Years Subscription',
+                        'description': 'Full access to all physics content and materials',
+                    },
+                    'unit_amount': 10000,  # $100.00 in cents
+                },
+                'quantity': 1,
+            }],
+            mode='payment',
+            success_url=request.build_absolute_uri('/subscription/success/'),
+            cancel_url=request.build_absolute_uri('/subscription/'),
+            client_reference_id=str(request.user.id),
+        )
+        return redirect(session.url)
+    except Exception as e:
+        messages.error(request, f'Payment processing error: {str(e)}')
+        return redirect('subscription')
+
 
 @login_required
 def subscription_success_view(request):

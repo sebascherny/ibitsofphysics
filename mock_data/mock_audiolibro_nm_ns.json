@@ -6,7 +6,8 @@
         "chapter": "A1 parte 1",
         "description": "Cinemática en 1-dimensión",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": false
+        "is_private": false,
+        "order": 0
     },
     {
         "category": "audiolibro_nm_ns",
@@ -15,7 +16,8 @@
         "chapter": "A1 parte 2",
         "description": "Aceleración",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 10
     },
     {
         "category": "audiolibro_nm_ns",
@@ -24,7 +26,8 @@
         "chapter": "A1 parte 3",
         "description": "Tiro proyectil u oblicuo",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 20
     },
     {
         "category": "audiolibro_nm_ns",
@@ -33,7 +36,8 @@
         "chapter": "A2 parte 1",
         "description": "Fuerzas y leyes de Newton",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 30
     },
     {
         "category": "audiolibro_nm_ns",
@@ -42,7 +46,8 @@
         "chapter": "A2 parte 2",
         "description": "Cantidad de movimiento y mov. circular",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 40
     },
     {
         "category": "audiolibro_nm_ns",
@@ -51,7 +56,8 @@
         "chapter": "A2 parte 3",
         "description": "Diagramas de cuerpo libre complejos",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 50
     },
     {
         "category": "audiolibro_nm_ns",
@@ -60,7 +66,8 @@
         "chapter": "A3 parte 1",
         "description": "Trabajo y energía",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 60
     },
     {
         "category": "audiolibro_nm_ns",
@@ -69,7 +76,8 @@
         "chapter": "A3 parte 2",
         "description": "Transferencias de energía",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 70
     },
     {
         "category": "audiolibro_nm_ns",
@@ -78,7 +86,8 @@
         "chapter": "A1 2 3 parte 1",
         "description": "15 preguntas resueltas de Mecánica",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 80
     },
     {
         "category": "audiolibro_nm_ns",
@@ -87,7 +96,8 @@
         "chapter": "A1 2 3 parte 2",
         "description": "15 preguntas más resueltas de Mecánica",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 90
     },
     {
         "category": "audiolibro_nm_ns",
@@ -96,7 +106,8 @@
         "chapter": "B1 parte 1",
         "description": "Energía térmica",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 100
     },
     {
         "category": "audiolibro_nm_ns",
@@ -105,7 +116,8 @@
         "chapter": "B1 parte 2",
         "description": "Transferencia de energía térmica",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 110
     },
     {
         "category": "audiolibro_nm_ns",
@@ -114,7 +126,8 @@
         "chapter": "B2",
         "description": "Efecto invernadero y equilibrio",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 120
     },
     {
         "category": "audiolibro_nm_ns",
@@ -123,7 +136,8 @@
         "chapter": "B3",
         "description": "Leyes de los gases",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 130
     },
     {
         "category": "audiolibro_nm_ns",
@@ -132,7 +146,8 @@
         "chapter": "B5 parte 1",
         "description": "Corriente eléctrica",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 140
     },
     {
         "category": "audiolibro_nm_ns",
@@ -141,7 +156,8 @@
         "chapter": "B5 parte 2",
         "description": "Circuitos eléctricos",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 150
     },
     {
         "category": "audiolibro_nm_ns",
@@ -150,7 +166,8 @@
         "chapter": "B1 2 3 5 parte 1",
         "description": "15 preguntas resultas de temas B",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 160
     },
     {
         "category": "audiolibro_nm_ns",
@@ -159,7 +176,8 @@
         "chapter": "B1 2 3 5 parte 2",
         "description": "16 preguntas más resultas de temas B",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 170
     },
     {
         "category": "audiolibro_nm_ns",
@@ -168,7 +186,8 @@
         "chapter": "C1",
         "description": "Movimiento armónico simple",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 180
     },
     {
         "category": "audiolibro_nm_ns",
@@ -177,7 +196,8 @@
         "chapter": "C2",
         "description": "Movimiento ondulatorio",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 190
     },
     {
         "category": "audiolibro_nm_ns",
@@ -186,7 +206,8 @@
         "chapter": "C3",
         "description": "Fenòmenos ondulatorios",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 200
     },
     {
         "category": "audiolibro_nm_ns",
@@ -195,7 +216,8 @@
         "chapter": "C4",
         "description": "Ondas estacionarias",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 210
     },
     {
         "category": "audiolibro_nm_ns",
@@ -204,7 +226,8 @@
         "chapter": "C5",
         "description": "Efecto Doppler",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 220
     },
     {
         "category": "audiolibro_nm_ns",
@@ -213,7 +236,8 @@
         "chapter": "C1 2 3 4 5 parte 1",
         "description": "15 preguntas resultas de temas C",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 230
     },
     {
         "category": "audiolibro_nm_ns",
@@ -222,7 +246,8 @@
         "chapter": "C1 2 3 4 5 parte 2",
         "description": "15 preguntas más resultas de temas C",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 240
     },
     {
         "category": "audiolibro_nm_ns",
@@ -231,7 +256,8 @@
         "chapter": "D1",
         "description": "Campo gravitatorio",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 250
     },
     {
         "category": "audiolibro_nm_ns",
@@ -240,7 +266,8 @@
         "chapter": "D2",
         "description": "Campo eléctrico y campo magnético",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 260
     },
     {
         "category": "audiolibro_nm_ns",
@@ -249,7 +276,8 @@
         "chapter": "D3",
         "description": "Movimiento en los campos",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 270
     },
     {
         "category": "audiolibro_nm_ns",
@@ -258,7 +286,8 @@
         "chapter": "D1 2 3 parte 1",
         "description": "15 preguntas resultas de temas D",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 280
     },
     {
         "category": "audiolibro_nm_ns",
@@ -267,7 +296,8 @@
         "chapter": "D1 2 3 parte 2",
         "description": "15 preguntas más resultas de temas D",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 290
     },
     {
         "category": "audiolibro_nm_ns",
@@ -276,7 +306,8 @@
         "chapter": "E1",
         "description": "Estructura del átomo",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 300
     },
     {
         "category": "audiolibro_nm_ns",
@@ -285,7 +316,8 @@
         "chapter": "E3",
         "description": "Decaimiento radiactivo",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 310
     },
     {
         "category": "audiolibro_nm_ns",
@@ -294,7 +326,8 @@
         "chapter": "E4",
         "description": "Fisión",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 320
     },
     {
         "category": "audiolibro_nm_ns",
@@ -303,7 +336,8 @@
         "chapter": "E5",
         "description": "Fusión y estrellas",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 330
     },
     {
         "category": "audiolibro_nm_ns",
@@ -312,7 +346,8 @@
         "chapter": "E 1 3 4 5 parte 1",
         "description": "15 preguntas resultas de temas E",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 340
     },
     {
         "category": "audiolibro_nm_ns",
@@ -321,6 +356,7 @@
         "chapter": "E 1 3 4 5 parte 2",
         "description": "15 preguntas más resultas de temas E",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 350
     }
 ]

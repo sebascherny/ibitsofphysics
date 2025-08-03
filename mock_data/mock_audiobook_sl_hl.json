@@ -6,7 +6,8 @@
         "chapter": "A1 part 1",
         "description": "Kinematics in one dimension. Graphs",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": false
+        "is_private": false,
+        "order": 0
     },
     {
         "category": "audiobook_sl_hl",
@@ -15,7 +16,8 @@
         "chapter": "A1 part 2",
         "description": "Accelerated motion.",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 10
     },
     {
         "category": "audiobook_sl_hl",
@@ -24,16 +26,18 @@
         "chapter": "A1 part 3",
         "description": "Projectile motion.",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 20
     },
     {
         "category": "audiobook_sl_hl",
         "title": "",
         "language": "en",
         "chapter": "A2 part 1",
-        "description": "Forces and Newton’s laws",
+        "description": "Forces and Newton's laws",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 30
     },
     {
         "category": "audiobook_sl_hl",
@@ -42,7 +46,8 @@
         "chapter": "A2 part 2",
         "description": "Momentum and circular motion",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 40
     },
     {
         "category": "audiobook_sl_hl",
@@ -51,7 +56,8 @@
         "chapter": "A2 part 3",
         "description": "Complex Free-body diagrams",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 50
     },
     {
         "category": "audiobook_sl_hl",
@@ -60,7 +66,8 @@
         "chapter": "A3 part 1",
         "description": "Work and energy",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 60
     },
     {
         "category": "audiobook_sl_hl",
@@ -69,7 +76,8 @@
         "chapter": "A3 part 2",
         "description": "Energy transfers",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 70
     },
     {
         "category": "audiobook_sl_hl",
@@ -78,7 +86,8 @@
         "chapter": "A1 2 3 part 1",
         "description": "15 questions solved on Mechanics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 80
     },
     {
         "category": "audiobook_sl_hl",
@@ -87,7 +96,8 @@
         "chapter": "A1 2 3 part 2",
         "description": "15 more questions solved on Mechanics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 90
     },
     {
         "category": "audiobook_sl_hl",
@@ -96,7 +106,8 @@
         "chapter": "B1 part 1",
         "description": "Thermal energy",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 100
     },
     {
         "category": "audiobook_sl_hl",
@@ -105,7 +116,8 @@
         "chapter": "B1 part 2",
         "description": "Thermal energy transfers",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 110
     },
     {
         "category": "audiobook_sl_hl",
@@ -114,7 +126,8 @@
         "chapter": "B2",
         "description": "Greenhouse effect and equilibrium",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 120
     },
     {
         "category": "audiobook_sl_hl",
@@ -123,7 +136,8 @@
         "chapter": "B3",
         "description": "Gas laws",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 130
     },
     {
         "category": "audiobook_sl_hl",
@@ -132,7 +146,8 @@
         "chapter": "B5 part 1",
         "description": "Electric current",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 140
     },
     {
         "category": "audiobook_sl_hl",
@@ -141,7 +156,8 @@
         "chapter": "B5 part 2",
         "description": "Electric circuits",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 150
     },
     {
         "category": "audiobook_sl_hl",
@@ -150,7 +166,8 @@
         "chapter": "B1 2 3 5 part 1",
         "description": "15 questions solved on B topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 160
     },
     {
         "category": "audiobook_sl_hl",
@@ -159,7 +176,8 @@
         "chapter": "B1 2 3 5 part 2",
         "description": "16 more questions solved on B topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 170
     },
     {
         "category": "audiobook_sl_hl",
@@ -168,7 +186,8 @@
         "chapter": "C1",
         "description": "Simple harmonic motion",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 180
     },
     {
         "category": "audiobook_sl_hl",
@@ -177,7 +196,8 @@
         "chapter": "C2",
         "description": "Waves",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 190
     },
     {
         "category": "audiobook_sl_hl",
@@ -186,7 +206,8 @@
         "chapter": "C3",
         "description": "Wave phenomena",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 200
     },
     {
         "category": "audiobook_sl_hl",
@@ -195,7 +216,8 @@
         "chapter": "C4",
         "description": "Standing waves",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 210
     },
     {
         "category": "audiobook_sl_hl",
@@ -204,7 +226,8 @@
         "chapter": "C5",
         "description": "Doppler effect",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 220
     },
     {
         "category": "audiobook_sl_hl",
@@ -213,7 +236,8 @@
         "chapter": "C1 2 3 4 5 part 1",
         "description": "15 questions solved on C topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 230
     },
     {
         "category": "audiobook_sl_hl",
@@ -222,7 +246,8 @@
         "chapter": "C1 2 3 4 5 part 2",
         "description": "15 more questions solved on C topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 240
     },
     {
         "category": "audiobook_sl_hl",
@@ -231,7 +256,8 @@
         "chapter": "D1",
         "description": "Gravitational fields",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 250
     },
     {
         "category": "audiobook_sl_hl",
@@ -240,7 +266,8 @@
         "chapter": "D2",
         "description": "Electric and magnetic fields",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 260
     },
     {
         "category": "audiobook_sl_hl",
@@ -249,7 +276,8 @@
         "chapter": "D3",
         "description": "Motion in fields",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 270
     },
     {
         "category": "audiobook_sl_hl",
@@ -258,7 +286,8 @@
         "chapter": "D1 2 3 part 1",
         "description": "15 questions solved on D topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 280
     },
     {
         "category": "audiobook_sl_hl",
@@ -267,7 +296,8 @@
         "chapter": "D1 2 3 part 2",
         "description": "15 more questions solved on D topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 290
     },
     {
         "category": "audiobook_sl_hl",
@@ -276,7 +306,8 @@
         "chapter": "E1",
         "description": "Structure of the atom",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 300
     },
     {
         "category": "audiobook_sl_hl",
@@ -285,7 +316,8 @@
         "chapter": "E3",
         "description": "Radioactive decay",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 310
     },
     {
         "category": "audiobook_sl_hl",
@@ -294,7 +326,8 @@
         "chapter": "E4",
         "description": "Fission",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 320
     },
     {
         "category": "audiobook_sl_hl",
@@ -303,7 +336,8 @@
         "chapter": "E5",
         "description": "Fusion and stars",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 330
     },
     {
         "category": "audiobook_sl_hl",
@@ -312,7 +346,8 @@
         "chapter": "E 1 3 4 5 part 1",
         "description": "15 questions solved on E topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 340
     },
     {
         "category": "audiobook_sl_hl",
@@ -321,6 +356,7 @@
         "chapter": "E 1 3 4 5 part 2",
         "description": "15 more questions solved on E topics",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
-        "is_private": true
+        "is_private": true,
+        "order": 350
     }
 ]

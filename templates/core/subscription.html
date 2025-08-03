@@ -21,19 +21,7 @@
         </div>
     {% else %}
         <div class="subscription-content">
-            {{ subscription_content|linebreaks }}
-        </div>
-        
-        <div class="payment-section mt-4">
-            <form method="post" class="text-center">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-success btn-lg">
-                    Subscribe Now - $50 USD
-                </button>
-            </form>
-            <p class="text-center mt-2 text-muted">
-                <small>Secure payment processed by Stripe</small>
-            </p>
+            {{ subscription_content|safe }}
         </div>
     {% endif %}
 </div>

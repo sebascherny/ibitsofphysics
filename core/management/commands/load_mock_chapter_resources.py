@@ -31,7 +31,8 @@ class Command(BaseCommand):
                     chapter=chapter_data['chapter'],
                     description=chapter_data['description'],
                     vimeo_url=chapter_data['vimeo_url'],
-                    is_private=chapter_data['is_private']
+                    is_private=chapter_data['is_private'],
+                    order=chapter_data.get('order', 0)
                 )
                 created += 1
 
