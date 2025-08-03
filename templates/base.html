@@ -11,21 +11,32 @@
 <header>
     <h1><span class="ib-red">IB</span>its of Physics</h1>
 </header>
-<nav>
+<nav id="spanish-nav">
+    <ul>
+        <li><a href="/audiolibro-nm-ns/"{% if request.path == '/audiolibro-nm-ns/' %} class="active"{% endif %}>Audiolibro NM NS</a></li>
+        <li><a href="/audiolibro-ns-solo/"{% if request.path == '/audiolibro-ns-solo/' %} class="active"{% endif %}>Audiolibro NS sólo</a></li>
+        <li><a href="/notas-y-practica/"{% if request.path == '/notas-y-practica/' %} class="active"{% endif %}>Notas y práctica</a></li>
+        <li><a href="/suscripcion/"{% if request.path == '/suscripcion/' %} class="active"{% endif %}>Suscripción</a></li>
+        <li><a href="/contacto/"{% if request.path == '/contacto/' %} class="active"{% endif %}>Contacto</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="/accounts/profile/">Perfil</a></li>
+        <li><a href="/accounts/logout/">Logout</a></li>
+        {% else %}
+        <li><a href="/accounts/login/">Login</a></li>
+        <li><a href="/accounts/register/">Register</a></li>
+        {% endif %}
+    </ul>
+</nav>
+<nav id="english-nav">
     <ul>
         <li><a href="/audiobook-sl-hl/"{% if request.path == '/audiobook-sl-hl/' %} class="active"{% endif %}>Audiobook SL HL</a></li>
         <li><a href="/audiobook-hl-only/"{% if request.path == '/audiobook-hl-only/' %} class="active"{% endif %}>Audiobook HL only</a></li>
-        <li><a href="/audiolibro-nm-ns/"{% if request.path == '/audiolibro-nm-ns/' %} class="active"{% endif %}>Audiolibro NM NS</a></li>
-        <li><a href="/audiolibro-ns-solo/"{% if request.path == '/audiolibro-ns-solo/' %} class="active"{% endif %}>Audiolibro NS sólo</a></li>
         <li><a href="/notes-and-practice/"{% if request.path == '/notes-and-practice/' %} class="active"{% endif %}>Notes and practice</a></li>
-        <li><a href="/notas-y-practica/"{% if request.path == '/notas-y-practica/' %} class="active"{% endif %}>Notas y práctica</a></li>
         <li><a href="/subscription/"{% if request.path == '/subscription/' %} class="active"{% endif %}>Subscription</a></li>
         <li><a href="/contact/"{% if request.path == '/contact/' %} class="active"{% endif %}>Contact</a></li>
         {% if user.is_authenticated %}
         <li><a href="/accounts/profile/">Profile</a></li>
-        <li><a href="/accounts/logout/">Logout</a></li>
         {% else %}
-        <li><a href="/accounts/login/">Login</a></li>
         <li><a href="/accounts/register/">Register</a></li>
         {% endif %}
     </ul>

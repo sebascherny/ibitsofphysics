@@ -7,6 +7,11 @@ from .models import ContactMessage, ChapterResource, SiteContent
 from accounts.models import UserProfile
 from orders.views import has_user_with_email_paid
 from django.template.context_processors import csrf
+from django.urls import reverse
+from django.views.decorators.http import require_http_methods
+import logging
+
+logger = logging.getLogger(__name__)
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -19,7 +24,7 @@ def miscellaneous_view(request):
 def teacher_notes_view(request):
     return render(request, 'core/teacher_notes.html')
 
-def contact_view(request):
+def contact_view(request, language):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -27,10 +32,10 @@ def contact_view(request):
         if name and email and message:
             ContactMessage.objects.create(name=name, email=email, message=message)
             messages.success(request, 'Your message has been sent!')
-            return redirect('contact')
+            return redirect('contact', language=language)
         else:
             messages.error(request, 'Please fill out all fields.')
-    return render(request, 'core/contact.html')
+    return render(request, 'core/contact.html', {'language': language})
 
 @login_required
 def shop_view(request):
@@ -92,66 +97,70 @@ def chapter_resource_view(request, category):
     return render(request, 'core/chapter_resources.html', context)
 
 @login_required
-def subscription_view(request):
+@require_http_methods(["GET"])
+def subscription_view(request, language):
     """View to display subscription content and handle Stripe payment"""
     # Get user profile or create if doesn't exist
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     
     # Get subscription content
     try:
-        subscription_content = SiteContent.objects.get(key='subscription', language='en').content
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_1__', f'{request.build_absolute_uri("/subscribe-1-year/")}')
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_2__', f'{request.build_absolute_uri("/subscribe-2-years/")}')
+        subscription_content = SiteContent.objects.get(key='subscription', language=language).content
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_75_en__', f'{request.build_absolute_uri("/subscribe-1-year/")}')
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_100_en__', f'{request.build_absolute_uri("/subscribe-2-years/")}')
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_75_es__', f'{request.build_absolute_uri("/suscripcion-1-anio/")}')
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_100_es__', f'{request.build_absolute_uri("/suscripcion-2-anios/")}')
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_50_en__', f'{request.build_absolute_uri("/subscribe-early-access/")}')
+        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_50_es__', f'{request.build_absolute_uri("/suscripcion-promo/")}')
         token = csrf(request)['csrf_token']
         subscription_content = subscription_content.replace('__CSRF_TOKEN__', f'<input type="hidden" name="csrfmiddlewaretoken" value="{token}">')
     except SiteContent.DoesNotExist:
         subscription_content = "Subscription information not available."
-    
-    if request.method == 'POST':
-        if user_profile.has_paid:
-            messages.info(request, 'You already have an active subscription!')
-            return redirect('subscription')
-        
-        try:
-            # Create Stripe checkout session
-            session = stripe.checkout.Session.create(
-                payment_method_types=['card'],
-                line_items=[{
-                    'price_data': {
-                        'currency': 'usd',
-                        'product_data': {
-                            'name': 'IBits of Physics Subscription',
-                            'description': 'Full access to all physics content and materials',
-                        },
-                        'unit_amount': 5000,  # $50.00 in cents
-                    },
-                    'quantity': 1,
-                }],
-                mode='payment',
-                success_url=request.build_absolute_uri('/subscription/success/'),
-                cancel_url=request.build_absolute_uri('/subscription/'),
-                client_reference_id=str(request.user.id),
-            )
-            return redirect(session.url)
-        except Exception as e:
-            messages.error(request, f'Payment processing error: {str(e)}')
-            return redirect('subscription')
-    
+
     context = {
         'subscription_content': subscription_content,
         'has_paid': user_profile.has_paid,
+        'language': language,
     }
     
     return render(request, 'core/subscription.html', context)
 
 
 @login_required()
-def redirect_to_stripe_1_year(request):
+@require_http_methods(["GET"])
+def redirect_to_stripe(request, language, type):
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     if user_profile.has_paid:
         messages.info(request, 'You already have an active subscription!')
-        return redirect('/subscription/', context={'has_paid': True})
+        return redirect(
+            reverse('subscription' if language == 'en' else 'suscripcion'),
+            context={'has_paid': True, 'language': language}
+        )
     
+    if type == '1 year':
+        unit_amount = 7500  # $75.00 in cents
+        if language == 'es':
+            name = 'IBits of Physics 1 Año'
+            description = 'Acceso a todo el contenido'
+        else:
+            name = 'IBits of Physics 1 Year Subscription'
+            description = 'Full access to all physics content and materials'
+    elif type == '2 years':
+        unit_amount = 10000  # $100.00 in cents
+        if language == 'es':
+            name = 'IBits of Physics 2 Años'
+            description = 'Acceso a todo el contenido'
+        else:
+            name = 'IBits of Physics 2 Years Subscription'
+            description = 'Full access to all physics content and materials'
+    elif type == 'early access':
+        unit_amount = 5000  # $50.00 in cents
+        if language == 'es':
+            name = 'IBits of Physics Acceso Temprano'
+            description = 'Acceso temprano al contenido'
+        else:
+            name = 'IBits of Physics Early Access'
+            description = 'Early access to all physics content and materials'
     try:
         # Create Stripe checkout session
         session = stripe.checkout.Session.create(
@@ -160,64 +169,44 @@ def redirect_to_stripe_1_year(request):
                 'price_data': {
                     'currency': 'usd',
                     'product_data': {
-                        'name': 'IBits of Physics 1 Year Subscription',
-                        'description': 'Full access to all physics content and materials',
+                        'name': name,
+                        'description': description,
                     },
-                    'unit_amount': 7500,  # $75.00 in cents
+                    'unit_amount': unit_amount,
                 },
                 'quantity': 1,
             }],
             mode='payment',
-            success_url=request.build_absolute_uri('/subscription/success/'),
-            cancel_url=request.build_absolute_uri('/subscription/'),
+            success_url=request.build_absolute_uri(reverse('subscription_success_' + language)),
+            cancel_url=request.build_absolute_uri(reverse('subscription' if language == 'en' else 'suscripcion')),
             client_reference_id=str(request.user.id),
         )
         return redirect(session.url)
     except Exception as e:
-        messages.error(request, f'Payment processing error: {str(e)}')
-        return redirect('subscription')
-
-
-@login_required()
-def redirect_to_stripe_2_years(request):
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
-    if user_profile.has_paid:
-        messages.info(request, 'You already have an active subscription!')
-        return redirect('/subscription/', context={'has_paid': True})
-    
-    try:
-        # Create Stripe checkout session
-        session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[{
-                'price_data': {
-                    'currency': 'usd',
-                    'product_data': {
-                        'name': 'IBits of Physics 2 Years Subscription',
-                        'description': 'Full access to all physics content and materials',
-                    },
-                    'unit_amount': 10000,  # $100.00 in cents
-                },
-                'quantity': 1,
-            }],
-            mode='payment',
-            success_url=request.build_absolute_uri('/subscription/success/'),
-            cancel_url=request.build_absolute_uri('/subscription/'),
-            client_reference_id=str(request.user.id),
+        logger.exception(e)
+        if language == 'es':
+            messages.error(request, f'Error al procesar el pago: {str(e)}')
+        else:
+            messages.error(request, f'Payment processing error: {str(e)}')
+        return redirect(
+            reverse('error-in-payment' if language == 'en' else 'error-en-pago'),
+            context={'has_paid': False, 'language': language}
         )
-        return redirect(session.url)
-    except Exception as e:
-        messages.error(request, f'Payment processing error: {str(e)}')
-        return redirect('subscription')
 
 
 @login_required
-def subscription_success_view(request):
+def subscription_success_view(request, language):
     """View to handle successful subscription payment"""
     # Get user profile and mark as paid
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     user_profile.has_paid = True
     user_profile.save()
+
+    subscription_success_content = SiteContent.objects.get(key='subscription_success', language=language).content
     
-    messages.success(request, 'Subscription successful! You now have access to all content.')
-    return render(request, 'core/subscription_success.html')
+    return render(request, 'core/subscription_success.html', {'language': language, 'subscription_success_content': subscription_success_content})
+
+
+@login_required
+def error_in_payment_view(request, language):
+    return render(request, 'core/error_in_payment.html', {'language': language})

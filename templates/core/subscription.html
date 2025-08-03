@@ -4,20 +4,21 @@
 
 {% block content %}
 <div class="container">
-    <h2>Subscription</h2>
-    
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
-        {% endfor %}
+    {% if language == 'es' %}
+        <h2>Suscripción</h2>
+    {% else %}
+        <h2>Subscription</h2>
     {% endif %}
     
     {% if has_paid %}
         <div class="alert alert-success">
-            <h4>✅ You have an active subscription!</h4>
-            <p>You have full access to all IBits of Physics content and materials.</p>
+            {% if language == 'es' %}
+                <h4>✅ Tienes una suscripción activa!</h4>
+                <p>Tienes acceso completo al contenido de IBits of Physics.</p>
+            {% else %}
+                <h4>✅ You have an active subscription!</h4>
+                <p>You have full access to all IBits of Physics content and materials.</p>
+            {% endif %}
         </div>
     {% else %}
         <div class="subscription-content">

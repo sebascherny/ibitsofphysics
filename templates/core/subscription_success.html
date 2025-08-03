@@ -5,35 +5,7 @@
 {% block content %}
 <div class="container">
     <div class="text-center">
-        <h2>🎉 Subscription Successful!</h2>
-        
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-        
-        <div class="alert alert-success">
-            <h4>Welcome to IBits of Physics!</h4>
-            <p>Your subscription has been activated successfully. You now have full access to all our content and materials.</p>
-        </div>
-        
-        <div class="mt-4">
-            <h5>What's Next?</h5>
-            <ul class="list-unstyled">
-                <li>🎧 Access all audiobook-style videos</li>
-                <li>📄 Download notes and practice materials</li>
-                <li>🎥 Request custom videos via email</li>
-                <li>🌍 Enjoy full bilingual content</li>
-            </ul>
-        </div>
-        
-        <div class="mt-4">
-            <a href="/audiobook-sl-hl/" class="btn btn-primary me-2">Start Learning</a>
-            <a href="/contact/" class="btn btn-outline-secondary">Contact Us</a>
-        </div>
+        {{ subscription_success_content|safe }}
     </div>
 </div>
 {% endblock %}

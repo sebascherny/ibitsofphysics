@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load site_content %}
-{% block title %}{% get_site_content "contact_title" %}{% endblock %}
+{% block title %}{% get_site_content "contact_title" language %}{% endblock %}
 {% block content %}
 <div class="container mt-5">
-  <h1>{% get_site_content "contact_heading" %}</h1>
+  <h1>{% get_site_content "contact_heading" language %}</h1>
   {% block contact_intro %}
-  {% get_site_content "contact_intro" %}
+  {% get_site_content "contact_intro" language %}
   {% endblock %}
   <form method="post">
     {% csrf_token %}

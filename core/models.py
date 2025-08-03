@@ -37,6 +37,7 @@ class ChapterResource(models.Model):
     chapter = models.CharField(max_length=100)
     description = models.TextField()
     vimeo_url = models.URLField(default="", blank=True, null=True)
+    drive_url = models.URLField(default="", blank=True, null=True)
     is_private = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)

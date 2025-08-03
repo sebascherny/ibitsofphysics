@@ -9,7 +9,7 @@ body {
 }
 
 header, nav, main, footer {
-  max-width: 900px;
+  max-width: 75%;
   margin: 0 auto;
 }
 
@@ -36,6 +36,7 @@ nav {
   background: rgba(30, 37, 45, 0.7); /* semi-transparent dark background */
   padding: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  width: 80%;
 }
 
 nav ul {

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Error in Payment{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    {% if error %}
+        {% if language == 'es' %}
+            <h1>Error en el Pago</h1>
+            <p>Algo salió mal con su pago. Por favor, inténtelo de nuevo o contáctenos con la siguiente información: {{ error }}</p>
+        {% else %}
+            <h1>Error in Payment</h1>
+            <p>Something went wrong with your payment. Please try again or contact us with the following information: {{ error }}</p>
+        {% endif %}
+    {% else %}
+        {% if language == 'es' %}
+            <h1>Error en el Pago</h1>
+            <p>Algo salió mal con su pago. Por favor, inténtelo de nuevo o contáctenos.</p>
+        {% else %}
+            <h1>Error in Payment</h1>
+            <p>Something went wrong with your payment. Please try again or contact us.</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
