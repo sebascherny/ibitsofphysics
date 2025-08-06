@@ -3,11 +3,31 @@
         "category": "audiolibro_nm_ns",
         "title": "",
         "language": "es",
+        "chapter": "Habilidades matemáticas",
+        "description": "Gráficos, gradientes, áreas, vectores e incertezas",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": false,
+        "order": 0
+    },
+    {
+        "category": "audiolibro_nm_ns",
+        "title": "",
+        "language": "es",
+        "chapter": "EI",
+        "description": "La investigación en la Física",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": false,
+        "order": 1
+    },
+    {
+        "category": "audiolibro_nm_ns",
+        "title": "",
+        "language": "es",
         "chapter": "A1 parte 1",
         "description": "Cinemática en 1-dimensión",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
         "is_private": false,
-        "order": 0
+        "order": 2
     },
     {
         "category": "audiolibro_nm_ns",

@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 import stripe
-from .models import ContactMessage, ChapterResource, SiteContent
+from .models import ContactMessage, ChapterResource, SiteContent, get_html_like_content
 from accounts.models import UserProfile
 from orders.views import has_user_with_email_paid
-from django.template.context_processors import csrf
 from django.urls import reverse
 from django.views.decorators.http import require_http_methods
 import logging
@@ -26,15 +27,69 @@ def teacher_notes_view(request):
 
 def contact_view(request, language):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        if name and email and message:
-            ContactMessage.objects.create(name=name, email=email, message=message)
-            messages.success(request, 'Your message has been sent!')
-            return redirect('contact', language=language)
-        else:
-            messages.error(request, 'Please fill out all fields.')
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        message = request.POST.get('message', '').strip()
+        
+        # Server-side validation
+        errors = []
+        if not name:
+            errors.append('Name is required.')
+        if not email:
+            errors.append('Email is required.')
+        elif '@' not in email or '.' not in email:
+            errors.append('Please enter a valid email address.')
+        if not message:
+            errors.append('Message is required.')
+        
+        if errors:
+            return render(request, 'core/contact.html', {
+                'language': language,
+                'name': name,
+                'email': email,
+                'message': message
+            })
+        
+        try:
+            contact_message = ContactMessage.objects.create(name=name, email=email, message=message)
+            
+            # Send email notification
+            try:
+                subject = f'New Contact Message from {name}'
+                email_message = f"""
+New contact message received:
+
+Name: {name}
+Email: {email}
+Message:
+{message}
+
+Submitted at: {contact_message.created_at.strftime('%Y-%m-%d %H:%M:%S')}
+"""
+                
+                send_mail(
+                    subject=subject,
+                    message=email_message,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[settings.ADMIN_EMAIL],
+                    fail_silently=False,
+                )
+                logger.info(f'Email notification sent for contact message from {name} <{email}>')
+            except Exception as email_error:
+                logger.error(f'Failed to send email notification for contact message: {email_error}')
+                # Continue with the redirect even if email fails
+            
+            return redirect(reverse('contact' if language == "en" else "contacto"))
+        except Exception as e:
+            logger.error(f'Error saving contact message: {e}')
+            return render(request, 'core/contact.html', {
+                'language': language,
+                'name': name,
+                'email': email,
+                'message': message,
+                'error': 'Error saving contact message' if language == "en" else 'Hubo un error enviando el mensaje, reintenta o envía un email directamente a ibitsofphysics@gmail.com'
+            })
+    
     return render(request, 'core/contact.html', {'language': language})
 
 @login_required
@@ -96,30 +151,26 @@ def chapter_resource_view(request, category):
     
     return render(request, 'core/chapter_resources.html', context)
 
-@login_required
+
 @require_http_methods(["GET"])
 def subscription_view(request, language):
     """View to display subscription content and handle Stripe payment"""
     # Get user profile or create if doesn't exist
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    if not request.user.is_authenticated:
+        has_paid = False
+    else:
+        user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+        has_paid = user_profile.has_paid
     
     # Get subscription content
     try:
-        subscription_content = SiteContent.objects.get(key='subscription', language=language).content
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_75_en__', f'{request.build_absolute_uri("/subscribe-1-year/")}')
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_100_en__', f'{request.build_absolute_uri("/subscribe-2-years/")}')
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_75_es__', f'{request.build_absolute_uri("/suscripcion-1-anio/")}')
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_100_es__', f'{request.build_absolute_uri("/suscripcion-2-anios/")}')
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_50_en__', f'{request.build_absolute_uri("/subscribe-early-access/")}')
-        subscription_content = subscription_content.replace('__REDIRECT_TO_STRIPE_50_es__', f'{request.build_absolute_uri("/suscripcion-promo/")}')
-        token = csrf(request)['csrf_token']
-        subscription_content = subscription_content.replace('__CSRF_TOKEN__', f'<input type="hidden" name="csrfmiddlewaretoken" value="{token}">')
+        subscription_content = get_html_like_content(request, 'subscription', language)
     except SiteContent.DoesNotExist:
         subscription_content = "Subscription information not available."
 
     context = {
         'subscription_content': subscription_content,
-        'has_paid': user_profile.has_paid,
+        'has_paid': has_paid,
         'language': language,
     }
     
@@ -138,7 +189,7 @@ def redirect_to_stripe(request, language, type):
         )
     
     if type == '1 year':
-        unit_amount = 7500  # $75.00 in cents
+        unit_amount = 6000  # $60.00 in cents
         if language == 'es':
             name = 'IBits of Physics 1 Año'
             description = 'Acceso a todo el contenido'
@@ -146,7 +197,7 @@ def redirect_to_stripe(request, language, type):
             name = 'IBits of Physics 1 Year Subscription'
             description = 'Full access to all physics content and materials'
     elif type == '2 years':
-        unit_amount = 10000  # $100.00 in cents
+        unit_amount = 9000  # $90.00 in cents
         if language == 'es':
             name = 'IBits of Physics 2 Años'
             description = 'Acceso a todo el contenido'
@@ -154,7 +205,7 @@ def redirect_to_stripe(request, language, type):
             name = 'IBits of Physics 2 Years Subscription'
             description = 'Full access to all physics content and materials'
     elif type == 'early access':
-        unit_amount = 5000  # $50.00 in cents
+        unit_amount = 4000  # $40.00 in cents
         if language == 'es':
             name = 'IBits of Physics Acceso Temprano'
             description = 'Acceso temprano al contenido'
@@ -202,7 +253,7 @@ def subscription_success_view(request, language):
     user_profile.has_paid = True
     user_profile.save()
 
-    subscription_success_content = SiteContent.objects.get(key='subscription_success', language=language).content
+    subscription_success_content = get_html_like_content(request, 'subscription_success', language)
     
     return render(request, 'core/subscription_success.html', {'language': language, 'subscription_success_content': subscription_success_content})
 

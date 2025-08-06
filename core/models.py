@@ -1,4 +1,6 @@
 from django.db import models
+from django.template.context_processors import csrf
+import os
 
 class SiteContent(models.Model):
     key = models.CharField(max_length=100)
@@ -10,6 +12,32 @@ class SiteContent(models.Model):
 
     def __str__(self):
         return f"{self.key} ({self.language})"
+
+
+def get_html_like_content(request, key, language):
+    content = SiteContent.objects.get(key=key, language=language).content
+    if request:
+        prefix = request.build_absolute_uri('/')
+    else:
+        prefix = os.getenv('FRONTEND_URL')
+    if not prefix.endswith('/'):
+        prefix += '/'
+    content = content.replace('__REDIRECT_TO_STRIPE_75_en__', f'{prefix}subscribe-1-year')
+    content = content.replace('__REDIRECT_TO_STRIPE_100_en__', f'{prefix}subscribe-2-years')
+    content = content.replace('__REDIRECT_TO_STRIPE_75_es__', f'{prefix}suscripcion-1-anio')
+    content = content.replace('__REDIRECT_TO_STRIPE_100_es__', f'{prefix}suscripcion-2-anios')
+    content = content.replace('__REDIRECT_TO_STRIPE_40_en__', f'{prefix}subscribe-early-access')
+    content = content.replace('__REDIRECT_TO_STRIPE_40_es__', f'{prefix}suscripcion-promo')
+    content = content.replace('__REDIRECT_TO_CONTACT_es__', f'{prefix}contacto')
+    content = content.replace('__REDIRECT_TO_CONTACT_en__', f'{prefix}contact')
+    content = content.replace('__REDIRECT_TO_SUSCRIPTION_es__', f'{prefix}suscripcion')
+    content = content.replace('__REDIRECT_TO_SUSCRIPTION_en__', f'{prefix}subscription')
+    if request:
+        token = csrf(request)['csrf_token']
+        content = content.replace('__CSRF_TOKEN__', f'<input type="hidden" name="csrfmiddlewaretoken" value="{token}">')
+    content = content.replace("\n", "<br/>")
+    return content
+
 
 class ContactMessage(models.Model):
     name = models.CharField(max_length=255)

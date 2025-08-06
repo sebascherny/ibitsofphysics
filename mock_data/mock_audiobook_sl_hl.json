@@ -3,11 +3,31 @@
         "category": "audiobook_sl_hl",
         "title": "",
         "language": "en",
+        "chapter": "Math Skills",
+        "description": "Graphs, gradients, areas, vectors and uncertainties",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": false,
+        "order": 0
+    },
+    {
+        "category": "audiobook_sl_hl",
+        "title": "",
+        "language": "en",
+        "chapter": "IA",
+        "description": "Investigating in physics",
+        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "is_private": false,
+        "order": 1
+    },
+    {
+        "category": "audiobook_sl_hl",
+        "title": "",
+        "language": "en",
         "chapter": "A1 part 1",
         "description": "Kinematics in one dimension. Graphs",
         "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
         "is_private": false,
-        "order": 0
+        "order": 2
     },
     {
         "category": "audiobook_sl_hl",

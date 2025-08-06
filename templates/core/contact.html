@@ -3,25 +3,66 @@
 {% block title %}{% get_site_content "contact_title" language %}{% endblock %}
 {% block content %}
 <div class="container mt-5">
-  <h1>{% get_site_content "contact_heading" language %}</h1>
+  <h2>{% get_site_content "contact_heading" language %}</h2>
   {% block contact_intro %}
   {% get_site_content "contact_intro" language %}
   {% endblock %}
-  <form method="post">
+  
+  <!-- Display Django messages -->
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+  
+  <form method="post" id="contactForm">
     {% csrf_token %}
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+      <input type="text" class="form-control" id="name" name="name" value="{{ name|default:'' }}" required>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" required>
+      <input type="email" class="form-control" id="email" name="email" value="{{ email|default:'' }}" required>
     </div>
     <div class="mb-3">
       <label for="message" class="form-label">Message</label>
-      <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      <textarea class="form-control" id="message" name="message" rows="4" required>{{ message|default:'' }}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">Send</button>
   </form>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      const missingFields = [];
+      
+      if (!name) {
+        missingFields.push('Name');
+      }
+      if (!email) {
+        missingFields.push('Email');
+      }
+      if (!message) {
+        missingFields.push('Message');
+      }
+      
+      if (missingFields.length > 0) {
+        e.preventDefault();
+        alert('Please fill in the following required fields: ' + missingFields.join(', '));
+        return false;
+      }
+    });
+    let error = "{{ error }}";
+    if (error) {
+      alert(error);
+    }
+  </script>
 </div>
 {% endblock %}
