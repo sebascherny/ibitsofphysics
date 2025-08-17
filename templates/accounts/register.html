@@ -2,11 +2,73 @@
 {% block content %}
 <div class="container mt-5">
   <h2>Register</h2>
-  <form method="post">
+  <form method="post" novalidate>
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <!--
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+      {% endif %}
+    -->
+
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Username (optional)</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_email" class="form-label">Email</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_password1" class="form-label">Password</label>
+      {{ form.password1 }}
+      {{ form.password1.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_password2" class="form-label">Confirm Password</label>
+      {{ form.password2 }}
+      {{ form.password2.errors }}
+    </div>
+
+    <div class="mb-3">
+      <button type="button" id="toggle-code" class="btn btn-link p-0">I have a code</button>
+    </div>
+
+    <div id="code-wrapper" class="mb-3 {% if form.code.errors %}{% else %}d-none{% endif %}">
+      <label for="id_code" class="form-label">School code</label>
+      {{ form.code }}
+      <div class="form-text">Optional: enter your school code if you have one.</div>
+      {{ form.code.errors }}
+    </div>
+
     <button type="submit" class="btn btn-success">Register</button>
   </form>
-  <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+  <p class="mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
 </div>
+
+<script>
+  (function() {
+    const toggleBtn = document.getElementById('toggle-code');
+    const codeWrapper = document.getElementById('code-wrapper');
+    const codeInput = document.getElementById('id_code');
+    if (toggleBtn && codeWrapper) {
+      toggleBtn.addEventListener('click', function() {
+        const isHidden = codeWrapper.classList.contains('d-none');
+        if (isHidden) {
+          codeWrapper.classList.remove('d-none');
+        } else {
+          codeWrapper.classList.add('d-none');
+        }
+        if (isHidden && codeInput) {
+          codeInput.focus();
+        }
+      });
+    }
+  })();
+  </script>
 {% endblock %}

@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True, help_text='Required. Enter a valid email address.')
     username = forms.CharField(required=False, help_text='Optional. If left empty, your email will be used.')
+    code = forms.CharField(required=False, label='School code', help_text='Optional: enter your school code if you have one.')
 
     class Meta:
         model = User
