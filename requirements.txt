@@ -3,6 +3,8 @@ psycopg2-binary>=2.9
 stripe>=8.0
 python-dotenv
 Pillow
+gspread
+oauth2client
 
 
 

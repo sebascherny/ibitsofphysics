@@ -26,10 +26,14 @@
                             <a href="{{ chapter.vimeo_url }}" target="_blank" class="btn btn-primary btn-sm">
                                 Watch Video
                             </a>
-                        {% else %}
+                        {% elif chapter.drive_url %}
                             <a href="{{ chapter.drive_url }}" target="_blank" class="btn btn-primary btn-sm">
                                 Open PDF
                             </a>
+                        {% else %}
+                            <label>
+                                To be uploaded on September '25
+                            </label>
                         {% endif %}
                     {% else %}
                         <a href="/subscription/" class="btn btn-warning btn-sm">

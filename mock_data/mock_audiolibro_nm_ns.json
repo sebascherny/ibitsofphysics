@@ -5,7 +5,7 @@
         "language": "es",
         "chapter": "Habilidades matemáticas",
         "description": "Gráficos, gradientes, áreas, vectores e incertezas",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": false,
         "order": 0
     },
@@ -15,7 +15,7 @@
         "language": "es",
         "chapter": "EI",
         "description": "La investigación en la Física",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": false,
         "order": 1
     },
@@ -25,7 +25,7 @@
         "language": "es",
         "chapter": "A1 parte 1",
         "description": "Cinemática en 1-dimensión",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": false,
         "order": 2
     },
@@ -35,7 +35,7 @@
         "language": "es",
         "chapter": "A1 parte 2",
         "description": "Aceleración",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 10
     },
@@ -45,7 +45,7 @@
         "language": "es",
         "chapter": "A1 parte 3",
         "description": "Tiro proyectil u oblicuo",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 20
     },
@@ -55,7 +55,7 @@
         "language": "es",
         "chapter": "A2 parte 1",
         "description": "Fuerzas y leyes de Newton",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 30
     },
@@ -65,7 +65,7 @@
         "language": "es",
         "chapter": "A2 parte 2",
         "description": "Cantidad de movimiento y mov. circular",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 40
     },
@@ -75,7 +75,7 @@
         "language": "es",
         "chapter": "A2 parte 3",
         "description": "Diagramas de cuerpo libre complejos",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 50
     },
@@ -85,7 +85,7 @@
         "language": "es",
         "chapter": "A3 parte 1",
         "description": "Trabajo y energía",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 60
     },
@@ -95,7 +95,7 @@
         "language": "es",
         "chapter": "A3 parte 2",
         "description": "Transferencias de energía",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 70
     },
@@ -105,7 +105,7 @@
         "language": "es",
         "chapter": "A1 2 3 parte 1",
         "description": "15 preguntas resueltas de Mecánica",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 80
     },
@@ -115,7 +115,7 @@
         "language": "es",
         "chapter": "A1 2 3 parte 2",
         "description": "15 preguntas más resueltas de Mecánica",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 90
     },
@@ -125,7 +125,7 @@
         "language": "es",
         "chapter": "B1 parte 1",
         "description": "Energía térmica",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 100
     },
@@ -135,7 +135,7 @@
         "language": "es",
         "chapter": "B1 parte 2",
         "description": "Transferencia de energía térmica",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 110
     },
@@ -145,7 +145,7 @@
         "language": "es",
         "chapter": "B2",
         "description": "Efecto invernadero y equilibrio",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 120
     },
@@ -155,7 +155,7 @@
         "language": "es",
         "chapter": "B3",
         "description": "Leyes de los gases",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 130
     },
@@ -165,7 +165,7 @@
         "language": "es",
         "chapter": "B5 parte 1",
         "description": "Corriente eléctrica",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 140
     },
@@ -175,7 +175,7 @@
         "language": "es",
         "chapter": "B5 parte 2",
         "description": "Circuitos eléctricos",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 150
     },
@@ -185,7 +185,7 @@
         "language": "es",
         "chapter": "B1 2 3 5 parte 1",
         "description": "15 preguntas resultas de temas B",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 160
     },
@@ -195,7 +195,7 @@
         "language": "es",
         "chapter": "B1 2 3 5 parte 2",
         "description": "16 preguntas más resultas de temas B",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 170
     },
@@ -205,7 +205,7 @@
         "language": "es",
         "chapter": "C1",
         "description": "Movimiento armónico simple",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 180
     },
@@ -215,7 +215,7 @@
         "language": "es",
         "chapter": "C2",
         "description": "Movimiento ondulatorio",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 190
     },
@@ -225,7 +225,7 @@
         "language": "es",
         "chapter": "C3",
         "description": "Fenòmenos ondulatorios",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 200
     },
@@ -235,7 +235,7 @@
         "language": "es",
         "chapter": "C4",
         "description": "Ondas estacionarias",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 210
     },
@@ -245,7 +245,7 @@
         "language": "es",
         "chapter": "C5",
         "description": "Efecto Doppler",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 220
     },
@@ -255,7 +255,7 @@
         "language": "es",
         "chapter": "C1 2 3 4 5 parte 1",
         "description": "15 preguntas resultas de temas C",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 230
     },
@@ -265,7 +265,7 @@
         "language": "es",
         "chapter": "C1 2 3 4 5 parte 2",
         "description": "15 preguntas más resultas de temas C",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 240
     },
@@ -275,7 +275,7 @@
         "language": "es",
         "chapter": "D1",
         "description": "Campo gravitatorio",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 250
     },
@@ -285,7 +285,7 @@
         "language": "es",
         "chapter": "D2",
         "description": "Campo eléctrico y campo magnético",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 260
     },
@@ -295,7 +295,7 @@
         "language": "es",
         "chapter": "D3",
         "description": "Movimiento en los campos",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 270
     },
@@ -305,7 +305,7 @@
         "language": "es",
         "chapter": "D1 2 3 parte 1",
         "description": "15 preguntas resultas de temas D",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 280
     },
@@ -315,7 +315,7 @@
         "language": "es",
         "chapter": "D1 2 3 parte 2",
         "description": "15 preguntas más resultas de temas D",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 290
     },
@@ -325,7 +325,7 @@
         "language": "es",
         "chapter": "E1",
         "description": "Estructura del átomo",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 300
     },
@@ -335,7 +335,7 @@
         "language": "es",
         "chapter": "E3",
         "description": "Decaimiento radiactivo",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 310
     },
@@ -345,7 +345,7 @@
         "language": "es",
         "chapter": "E4",
         "description": "Fisión",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 320
     },
@@ -355,7 +355,7 @@
         "language": "es",
         "chapter": "E5",
         "description": "Fusión y estrellas",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 330
     },
@@ -365,7 +365,7 @@
         "language": "es",
         "chapter": "E 1 3 4 5 parte 1",
         "description": "15 preguntas resultas de temas E",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 340
     },
@@ -375,7 +375,7 @@
         "language": "es",
         "chapter": "E 1 3 4 5 parte 2",
         "description": "15 preguntas más resultas de temas E",
-        "vimeo_url": "https://vimeo.com/1103275880/7e4fe06623",
+        "vimeo_url": "",
         "is_private": true,
         "order": 350
     }

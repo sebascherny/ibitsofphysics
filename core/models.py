@@ -74,7 +74,7 @@ class ChapterResource(models.Model):
     
     class Meta:
         ordering = ['category', 'order', 'chapter']
-        unique_together = ('category', 'chapter')
+        unique_together = ('category', 'chapter', 'description')
     
     def __str__(self):
         return f"{self.category}: {self.chapter}"
