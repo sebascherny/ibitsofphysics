@@ -1,6 +1,10 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django import forms
 from django.db import models
+from django.shortcuts import redirect
+from django.urls import path, reverse
+from django.core.management import call_command
+from django.utils.translation import gettext_lazy as _
 from .models import ContactMessage, SiteContent, ChapterResource
 
 
@@ -60,3 +64,32 @@ class ChapterResourceAdmin(admin.ModelAdmin):
     list_filter = ('category', 'language', 'is_private')
     search_fields = ('chapter', 'description', 'title', 'vimeo_url')
     ordering = ('category', 'order', 'chapter')
+
+    change_list_template = 'admin/core/chapterresource/change_list.html'
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path(
+                'load-mock-resources/',
+                self.admin_site.admin_view(self.load_mock_resources_view),
+                name='core_chapterresource_load_mock',
+            ),
+        ]
+        return custom_urls + urls
+
+    def load_mock_resources_view(self, request):
+        if not request.user.is_superuser:
+            self.message_user(request, _('You do not have permission to run this action.'), level=messages.ERROR)
+            return redirect(reverse('admin:core_chapterresource_changelist'))
+
+        if request.method != 'POST':
+            self.message_user(request, _('Invalid request method.'), level=messages.ERROR)
+            return redirect(reverse('admin:core_chapterresource_changelist'))
+
+        try:
+            call_command('load_mock_chapter_resources', '--clear')
+            self.message_user(request, _('Mock chapter resources loaded successfully.'), level=messages.SUCCESS)
+        except Exception as e:
+            self.message_user(request, _('Error loading mock resources: %s') % e, level=messages.ERROR)
+        return redirect(reverse('admin:core_chapterresource_changelist'))

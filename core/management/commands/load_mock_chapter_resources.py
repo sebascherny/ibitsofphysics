@@ -5,7 +5,7 @@ from core.models import ChapterResource
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-def get_drive_rows(stdout, style):
+def get_drive_rows():
     """
     Reads a Google Spreadsheet and returns its data as a list of lists.
     """
@@ -25,27 +25,21 @@ def get_drive_rows(stdout, style):
     public_json["client_email"] = os.getenv("client_email")
     public_json["client_id"] = os.getenv("client_id")
     public_json["client_x509_cert_url"] = os.getenv("client_x509_cert_url")
-    stdout.write(style.SUCCESS('Successfully loaded credentials'))
-    stdout.write(style.SUCCESS(json.dumps(public_json)))
     with open("credentials.json", "w") as f:
         json.dump(public_json, f)
-        stdout.write(style.SUCCESS('Created file credentials.json'))
     creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
     client = gspread.authorize(creds)
     sheet = client.open_by_url(sheet_url)
     worksheet = sheet.sheet1
     data = worksheet.get_all_values()
-    stdout.write(style.SUCCESS(f'Successfully loaded {len(data)} rows'))
     os.remove("credentials.json")
-    stdout.write(style.SUCCESS('Successfully removed credentials.json'))
     return data
 
 
-def load_from_drive(stdout, style):
+def load_from_drive():
     headers = []
     created = 0
-    for row in get_drive_rows(stdout, style):
-        stdout.write(style.SUCCESS(f'Successfully loaded row {row}'))
+    for row in get_drive_rows():
         if not any(row):
             continue
         if not headers:
@@ -104,7 +98,7 @@ class Command(BaseCommand):
             ChapterResource.objects.all().delete()
             self.stdout.write(self.style.WARNING('Cleared all existing chapter resources'))
 
-        created = load_from_drive(self.stdout, self.style)
+        created = load_from_drive()
 
         self.stdout.write(
             self.style.SUCCESS(
