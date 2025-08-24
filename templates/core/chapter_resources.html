@@ -36,9 +36,15 @@
                             </label>
                         {% endif %}
                     {% else %}
-                        <a href="/subscription/" class="btn btn-warning btn-sm">
-                            Subscribe to see
-                        </a>
+                        {% if chapter.vimeo_url or chapter.drive_url %}
+                            <a href="/subscription/" class="btn btn-warning btn-sm">
+                                Subscribe to see
+                            </a>
+                        {% else %}
+                            <label>
+                                To be uploaded on September '25
+                            </label>
+                        {% endif %}
                     {% endif %}
                 </td>
             </tr>
