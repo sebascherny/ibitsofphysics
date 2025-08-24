@@ -18,9 +18,14 @@ class Command(BaseCommand):
         count = 0
         for lang, entries in data.items():
             for key, content in entries.items():
+                if os.path.exists(os.path.join(base_dir, 'mock_data', f'{key}_{lang}.html')):
+                    with open(os.path.join(base_dir, 'mock_data', f'{key}_{lang}.html'), 'r', encoding='utf-8') as f:
+                        html_content = f.read()
+                else:
+                    html_content = content
                 obj, created = SiteContent.objects.update_or_create(
                     key=key, language=lang,
-                    defaults={'content': content}
+                    defaults={'content': html_content}
                 )
                 count += 1
         self.stdout.write(self.style.SUCCESS(f'Successfully loaded {count} items into SiteContent.'))

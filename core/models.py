@@ -35,7 +35,7 @@ def get_html_like_content(request, key, language):
     if request:
         token = csrf(request)['csrf_token']
         content = content.replace('__CSRF_TOKEN__', f'<input type="hidden" name="csrfmiddlewaretoken" value="{token}">')
-    content = content.replace("\n", "<br/>")
+    # content = content.replace("\n", "<br/>")
     return content
 
 
