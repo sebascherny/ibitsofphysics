@@ -5,7 +5,7 @@ from core.models import ChapterResource
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-def get_drive_rows():
+def get_drive_rows(worksheet_num=1):
     """
     Reads a Google Spreadsheet and returns its data as a list of lists.
     """
@@ -30,7 +30,10 @@ def get_drive_rows():
     creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
     client = gspread.authorize(creds)
     sheet = client.open_by_url(sheet_url)
-    worksheet = sheet.sheet1
+    if worksheet_num == 1:
+        worksheet = sheet.sheet1
+    else:
+        worksheet = sheet.worksheet("Sheet2")
     data = worksheet.get_all_values()
     os.remove("credentials.json")
     return data

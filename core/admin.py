@@ -51,6 +51,35 @@ class SiteContentAdmin(admin.ModelAdmin):
         return (obj.content or '')[:200]
     content_first_part.description = "content"
 
+    change_list_template = 'admin/core/sitecontent/change_list.html'
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path(
+                'load-mock-content/',
+                self.admin_site.admin_view(self.load_mock_content_view),
+                name='core_sitecontent_load_mock',
+            ),
+        ]
+        return custom_urls + urls
+
+    def load_mock_content_view(self, request):
+        if not request.user.is_superuser:
+            self.message_user(request, _('You do not have permission to run this action.'), level=messages.ERROR)
+            return redirect(reverse('admin:core_sitecontent_changelist'))
+
+        if request.method != 'POST':
+            self.message_user(request, _('Invalid request method.'), level=messages.ERROR)
+            return redirect(reverse('admin:core_sitecontent_changelist'))
+
+        try:
+            call_command('load_mock_site_content', '--clear')
+            self.message_user(request, _('Mock site content loaded successfully.'), level=messages.SUCCESS)
+        except Exception as e:
+            self.message_user(request, _('Error loading mock content: %s') % e, level=messages.ERROR)
+        return redirect(reverse('admin:core_sitecontent_changelist'))
+
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):

@@ -36,7 +36,10 @@ class Command(BaseCommand):
         if not options['skip_site_content']:
             self.stdout.write('Loading site content...')
             try:
-                call_command('load_mock_site_content')
+                if options['clear']:
+                    call_command('load_mock_site_content', '--clear')
+                else:
+                    call_command('load_mock_site_content')
                 self.stdout.write(
                     self.style.SUCCESS('✓ Site content loaded successfully')
                 )
