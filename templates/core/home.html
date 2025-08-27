@@ -2,8 +2,46 @@
 {% load site_content %}
 {% block title %}{% get_site_content "home_title" %}{% endblock %}
 {% block content %}
+<style>
+.two-column-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.column {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.column h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .two-column-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+</style>
+
 <div class="container mt-5">
-  <h2>{% get_site_content "home_heading" %}</h2>
-  <p class="lead">{% get_site_content "home_lead" %}</p>
+  <div class="two-column-container">
+    <div class="column">
+      <h3>{% get_site_content "home_heading" %}</h3>
+      {% get_site_content "home_lead" %}
+    </div>
+    <div class="column">
+      <h3>{% get_site_content "home_heading" "es" %}</h3>
+      {% get_site_content "home_lead" "es" %}
+    </div>
+  </div>
 </div>
 {% endblock %}

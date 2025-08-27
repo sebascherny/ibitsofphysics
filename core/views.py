@@ -124,7 +124,7 @@ def shop_view(request):
 def shop_success_view(request):
     return render(request, 'core/shop_success.html')
 
-def chapter_resource_view(request, category):
+def chapter_resource_view(request, category, language="en"):
     """View to display chapter resources for a specific category with conditional access"""
     # Check user payment status
     has_paid = False
@@ -147,6 +147,7 @@ def chapter_resource_view(request, category):
         'category_display': category_display,
         'has_paid': has_paid,
         'user_authenticated': request.user.is_authenticated,
+        'language': language,
     }
     
     return render(request, 'core/chapter_resources.html', context)

@@ -20,7 +20,7 @@
         <li><a href="/suscripcion/"{% if request.path == '/suscripcion/' %} class="active"{% endif %}>Suscripción</a></li>
         <li><a href="/contacto/"{% if request.path == '/contacto/' %} class="active"{% endif %}>Contacto</a></li>
         {% if user.is_authenticated %}
-        <li><a href="/accounts/profile/">Perfil</a></li>
+        <li><a href="/accounts/perfil/">Perfil</a></li>
         <li><a href="/accounts/logout/">Logout</a></li>
         {% else %}
         <li><a href="/accounts/login/">Login/Entrar</a></li>

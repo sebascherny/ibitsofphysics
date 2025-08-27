@@ -10,7 +10,7 @@
     "core_home_title": "Home",
     "core_home_body": "Welcome to the homepage of Bits of Physics.",
     "home_heading": "Welcome to the bilingual audiobook IBits of Physics!",
-    "home_lead": "<em>An audiobook resource that walks through the IB Physics syllabus — bit by bit. </em><br/><br/><em>The content is delivered through videos and notes that highlight the key concepts of each chapter, along with exam-style practice material. Once subscribed, you can also contact us to request updates, extensions, or even personalized materials tailored to your specific questions.</em><br/><br/>In addition to individual subscriptions, we offer <b>special plans for schools</b>, , including group access for students and exclusive mock exam packages.<br/> Check out the <b><a href=\"__REDIRECT_TO_SUSCRIPTION_en__\" type=\"button\" class=\"btn btn-success btn-lg\" target=\"_blank\">Subscription</a></b> and <b><a href=\"__REDIRECT_TO_CONTACT_en__\" type=\"button\" class=\"btn btn-success btn-lg\" target=\"_blank\">Contact</a></b> sections for more information.",
+    "home_lead": "",
     "core_miscellaneous_title": "Miscellaneous",
     "core_miscellaneous_body": "Various resources and links related to physics.",
     "core_teacher_notes_title": "Teacher Notes",
@@ -32,7 +32,11 @@
     "products_product_list_title": "Product List",
     "products_product_list_body": "Browse our selection of physics-related products.",
     "base_title": "Bits of Physics",
-    "base_body": "Base template content."
+    "base_body": "Base template content.",
+    "to_be_uploaded_on": "To be uploaded on October '25",
+    "watch_video": "Watch Video",
+    "open_pdf": "Open PDF",
+    "subscribe_to_see": "Subscribe to see"
   },
   "es": {
     "contact_heading": "Contactos y Pedidos",
@@ -41,7 +45,7 @@
     "welcome_message": "¡Bienvenido a Bits de Física!",
     "about": "Este sitio está dedicado a hacer que la física sea accesible y divertida.",
     "home_heading": "¡Bienvenidos al audiolibro bilingüe IBits of Physics!",
-    "home_lead": "<em>Un recurso en formato audiolibro que recorre en partes (“bits”) todo el programa del IB de Física. </em><br/><br/><em>Los contenidos se presentan en videos y notas que destacan los elementos clave de cada capítulo e incluyen material de práctica para el examen. Una vez suscriptos, pueden escribirnos para pedir cambios, actualizaciones, extensiones o incluso materiales personalizados para sus dudas específicas.</em><br/><br/>Además de suscripciones individuales, ofrecemos <b>planes especiales para colegios</b>, con acceso grupal para estudiantes y paquetes exclusivos de exámenes simulacro.<br/> Consulten las secciones de <b><a href=\"__REDIRECT_TO_SUSCRIPTION_es__\" type=\"button\" class=\"btn btn-success btn-lg\" target=\"_blank\">Subscripción</a></b> y <b><a href=\"__REDIRECT_TO_CONTACT_es__\" type=\"button\" class=\"btn btn-success btn-lg\" target=\"_blank\">Contacto</a></b> para más detalles.",
+    "home_lead": "",
     "core_contact_title": "Contacto",
     "core_contact_body": "No dude en contactarnos con sus preguntas o comentarios.",
     "core_home_title": "Inicio",
@@ -67,6 +71,10 @@
     "products_product_list_title": "Lista de Productos",
     "products_product_list_body": "Explore nuestra selección de productos relacionados con la física.",
     "base_title": "Bits de Física",
-    "base_body": "Contenido de la plantilla base."
+    "base_body": "Contenido de la plantilla base.",
+    "to_be_uploaded_on": "Será subido en Octubre '25",
+    "watch_video": "Ver video",
+    "open_pdf": "Abrir PDF",
+    "subscribe_to_see": "Suscribirse para ver"
   }
 }

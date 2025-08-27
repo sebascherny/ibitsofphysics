@@ -62,6 +62,6 @@ def register_view(request):
 
 
 @login_required
-def profile_view(request):
+def profile_view(request, language):
     profile = UserProfile.objects.get_or_create(user=request.user)[0]
-    return render(request, 'accounts/profile.html', {'profile': profile})
+    return render(request, 'accounts/profile.html', {'profile': profile, 'language': language})
