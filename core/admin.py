@@ -44,7 +44,7 @@ class SiteContentAdminForm(forms.ModelForm):
 @admin.register(SiteContent)
 class SiteContentAdmin(admin.ModelAdmin):
     form = SiteContentAdminForm
-    list_display = ('key', 'language', 'content_first_part')
+    list_display = ('key', 'language', 'content_first_part', 'updated_at')
     search_fields = ('key', 'content')
 
     def content_first_part(self, obj):
@@ -60,7 +60,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
 
 @admin.register(ChapterResource)
 class ChapterResourceAdmin(admin.ModelAdmin):
-    list_display = ('category', 'chapter', 'title', 'vimeo_url', 'language', 'is_private', 'order')
+    list_display = ('category', 'chapter', 'title', 'vimeo_url', 'language', 'is_private', 'order', 'updated_at')
     list_filter = ('category', 'language', 'is_private')
     search_fields = ('chapter', 'description', 'title', 'vimeo_url')
     ordering = ('category', 'order', 'chapter')

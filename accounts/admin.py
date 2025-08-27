@@ -8,7 +8,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 @admin.register(Code)
 class CodeAdmin(admin.ModelAdmin):
     list_display = (
-        'code', 'school', 'total_accounts', 'remaining_accounts', 'who_paid', 'amount_paid', 'created_at'
+        'code', 'school', 'total_accounts', 'remaining_accounts', 'who_paid', 'amount_paid', 'created_at', 'updated_at'
     )
     search_fields = ('code', 'school', 'who_paid')
     list_filter = ('school',)

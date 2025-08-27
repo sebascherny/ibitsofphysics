@@ -6,6 +6,7 @@ class SiteContent(models.Model):
     key = models.CharField(max_length=100)
     language = models.CharField(max_length=10, default='en')
     content = models.TextField()
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = ('key', 'language')
@@ -71,6 +72,7 @@ class ChapterResource(models.Model):
     is_private = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
         ordering = ['category', 'order', 'chapter']
