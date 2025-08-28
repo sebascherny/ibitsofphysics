@@ -17,19 +17,30 @@ logger = logging.getLogger(__name__)
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def home_view(request):
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    logger.info(f'Home page accessed by user: {user_info}')
     return render(request, 'core/home.html')
 
 def miscellaneous_view(request):
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    logger.info(f'Miscellaneous page accessed by user: {user_info}')
     return render(request, 'core/miscellaneous.html')
 
 def teacher_notes_view(request):
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    logger.info(f'Teacher notes page accessed by user: {user_info}')
     return render(request, 'core/teacher_notes.html')
 
 def contact_view(request, language):
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    logger.info(f'Contact page accessed by user: {user_info}, language: {language}')
+    
     if request.method == 'POST':
         name = request.POST.get('name', '').strip()
         email = request.POST.get('email', '').strip()
         message = request.POST.get('message', '').strip()
+        
+        logger.info(f'Contact form submission: Name: {name}, Email: {email}, User: {user_info}, Language: {language}')
         
         # Server-side validation
         errors = []
@@ -52,6 +63,7 @@ def contact_view(request, language):
         
         try:
             contact_message = ContactMessage.objects.create(name=name, email=email, message=message)
+            logger.info(f'Contact message saved successfully: ID {contact_message.id}, from {name} <{email}>')
             
             # Send email notification
             try:
@@ -94,38 +106,51 @@ Submitted at: {contact_message.created_at.strftime('%Y-%m-%d %H:%M:%S')}
 
 @login_required
 def shop_view(request):
+    logger.info(f'Shop page accessed by user: {request.user.username} (ID: {request.user.id})')
+    
     if request.method == 'POST':
-        session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[{
-                'price_data': {
-                    'currency': 'usd',
-                    'product_data': {
-                        'name': 'Private Videos Pack',
+        try:
+            session = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=[{
+                    'price_data': {
+                        'currency': 'usd',
+                        'product_data': {
+                            'name': 'Private Videos Pack',
+                        },
+                        'unit_amount': 4000,  # $40.00 in cents
                     },
-                    'unit_amount': 4000,  # $40.00 in cents
-                },
-                'quantity': 1,
-            }],
-            mode='payment',
-            customer_email=request.user.email,
-            success_url=request.build_absolute_uri('/shop/success/') + '?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url=request.build_absolute_uri('/shop/'),
-            metadata={
-                'user_id': request.user.id,
-            }
-        )
-        return redirect(session.url, code=303)
+                    'quantity': 1,
+                }],
+                mode='payment',
+                customer_email=request.user.email,
+                success_url=request.build_absolute_uri('/shop/success/') + '?session_id={CHECKOUT_SESSION_ID}',
+                cancel_url=request.build_absolute_uri('/shop/'),
+                metadata={
+                    'user_id': request.user.id,
+                }
+            )
+            logger.info(f'Stripe checkout session created for user {request.user.username}: Session ID {session.id}, Amount: $40.00')
+            return redirect(session.url, code=303)
+        except Exception as e:
+            logger.error(f'Error creating Stripe checkout session for user {request.user.username}: {str(e)}', exc_info=True)
+            return redirect('shop')
+    
     return render(request, 'core/shop.html', {
         'STRIPE_PUBLIC_KEY': settings.STRIPE_PUBLIC_KEY,
         'has_paid': has_user_with_email_paid(request.user.email)
     })
 
 def shop_success_view(request):
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    session_id = request.GET.get('session_id', 'unknown')
+    logger.info(f'Shop success page accessed by user: {user_info}, Session ID: {session_id}')
     return render(request, 'core/shop_success.html')
 
 def chapter_resource_view(request, category, language="en"):
     """View to display chapter resources for a specific category with conditional access"""
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    
     # Check user payment status
     has_paid = False
     if request.user.is_authenticated:
@@ -140,6 +165,8 @@ def chapter_resource_view(request, category, language="en"):
     
     # Get the display name for the category
     category_display = dict(ChapterResource.CATEGORY_CHOICES).get(category, category)
+    
+    logger.info(f'Chapter resources accessed: Category {category} ({category_display}) by user {user_info}, Language: {language}, Has Paid: {has_paid}, Resources Count: {chapters.count()}')
     
     context = {
         'chapters': chapters,
@@ -156,12 +183,16 @@ def chapter_resource_view(request, category, language="en"):
 @require_http_methods(["GET"])
 def subscription_view(request, language):
     """View to display subscription content and handle Stripe payment"""
+    user_info = f'{request.user.username} (ID: {request.user.id})' if request.user.is_authenticated else 'anonymous'
+    
     # Get user profile or create if doesn't exist
     if not request.user.is_authenticated:
         has_paid = False
     else:
         user_profile, created = UserProfile.objects.get_or_create(user=request.user)
         has_paid = user_profile.has_paid
+    
+    logger.info(f'Subscription page accessed by user: {user_info}, Language: {language}, Has Paid: {has_paid}')
     
     # Get subscription content
     try:
@@ -181,8 +212,11 @@ def subscription_view(request, language):
 @login_required()
 @require_http_methods(["GET"])
 def redirect_to_stripe(request, language, type):
+    logger.info(f'Stripe redirect initiated by user: {request.user.username} (ID: {request.user.id}), Language: {language}, Type: {type}')
+    
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     if user_profile.has_paid:
+        logger.info(f'User {request.user.username} already has paid subscription, redirecting to subscription page')
         messages.info(request, 'You already have an active subscription!')
         return redirect(
             reverse('subscription' if language == 'en' else 'suscripcion'),
@@ -233,9 +267,10 @@ def redirect_to_stripe(request, language, type):
             cancel_url=request.build_absolute_uri(reverse('subscription' if language == 'en' else 'suscripcion')),
             client_reference_id=str(request.user.id),
         )
+        logger.info(f'Stripe subscription checkout session created: User {request.user.username}, Type: {type}, Amount: ${unit_amount/100}, Session ID: {session.id}')
         return redirect(session.url)
     except Exception as e:
-        logger.exception(e)
+        logger.error(f'Error creating Stripe subscription session for user {request.user.username}: {str(e)}', exc_info=True)
         if language == 'es':
             messages.error(request, f'Error al procesar el pago: {str(e)}')
         else:
@@ -253,6 +288,8 @@ def subscription_success_view(request, language):
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     user_profile.has_paid = True
     user_profile.save()
+    
+    logger.info(f'Subscription success: User {request.user.username} (ID: {request.user.id}) marked as paid, Language: {language}')
 
     subscription_success_content = get_html_like_content(request, 'subscription_success', language)
     
@@ -261,4 +298,5 @@ def subscription_success_view(request, language):
 
 @login_required
 def error_in_payment_view(request, language):
+    logger.warning(f'Payment error page accessed by user: {request.user.username} (ID: {request.user.id}), Language: {language}')
     return render(request, 'core/error_in_payment.html', {'language': language})

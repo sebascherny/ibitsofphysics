@@ -1,6 +1,7 @@
 import os
 from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import User
+from accounts.models import UserProfile
 
 class Command(BaseCommand):
     help = 'Create a superuser automatically from environment variables if none exists'
@@ -44,6 +45,10 @@ class Command(BaseCommand):
                         f'User "{admin_username}" already exists. Use --force to recreate.'
                     )
                 )
+                UserProfile.objects.update_or_create(
+                    user=User.objects.get(username=admin_username),
+                    defaults={'has_paid': False}
+                )
                 return
             else:
                 # Delete existing user if force is used
@@ -58,6 +63,10 @@ class Command(BaseCommand):
                 username=admin_username,
                 email=admin_email,
                 password=admin_password
+            )
+            UserProfile.objects.update_or_create(
+                user=user,
+                defaults={'has_paid': False}
             )
             
             self.stdout.write(
