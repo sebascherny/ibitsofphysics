@@ -198,14 +198,14 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
-        'file_requests': {
-            'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'requests.log'),
-            'maxBytes': 1024*1024*10,  # 10 MB
-            'backupCount': 5,
-            'formatter': 'detailed',
-        },
+        #'file_requests': {
+        #    'level': 'INFO',
+        #    'class': 'logging.handlers.RotatingFileHandler',
+        #    'filename': os.path.join(BASE_DIR, 'logs', 'requests.log'),
+        #    'maxBytes': 1024*1024*10,  # 10 MB
+        #    'backupCount': 5,
+        #    'formatter': 'detailed',
+        #},
         #'file_app': {
         #    'level': 'INFO',
         #    'class': 'logging.handlers.RotatingFileHandler',
@@ -214,22 +214,22 @@ LOGGING = {
         #    'backupCount': 5,
         #    'formatter': 'verbose',
         #},
-        'file_errors': {
-            'level': 'ERROR',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'errors.log'),
-            'maxBytes': 1024*1024*10,  # 10 MB
-            'backupCount': 5,
-            'formatter': 'verbose',
-        },
-        'file_security': {
-            'level': 'WARNING',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'security.log'),
-            'maxBytes': 1024*1024*10,  # 10 MB
-            'backupCount': 5,
-            'formatter': 'detailed',
-        },
+        #'file_errors': {
+        #    'level': 'ERROR',
+        #    'class': 'logging.handlers.RotatingFileHandler',
+        #    'filename': os.path.join(BASE_DIR, 'logs', 'errors.log'),
+        #    'maxBytes': 1024*1024*10,  # 10 MB
+        #    'backupCount': 5,
+        #    'formatter': 'verbose',
+        #},
+        #'file_security': {
+        #    'level': 'WARNING',
+        #    'class': 'logging.handlers.RotatingFileHandler',
+        #    'filename': os.path.join(BASE_DIR, 'logs', 'security.log'),
+        #    'maxBytes': 1024*1024*10,  # 10 MB
+        #    'backupCount': 5,
+        #    'formatter': 'detailed',
+        #},
     },
     'loggers': {
         'django': {
@@ -238,17 +238,17 @@ LOGGING = {
             'propagate': False,
         },
         'django.request': {
-            'handlers': ['file_errors', 'console'],
+            'handlers': ['console'], # file_errors
             'level': 'ERROR',
             'propagate': False,
         },
         'django.security': {
-            'handlers': ['file_security', 'console'],
+            'handlers': ['console'], # file_security,
             'level': 'WARNING',
             'propagate': False,
         },
         'ibitsofphysics.requests': {
-            'handlers': ['file_requests', 'console'],
+            'handlers': ['console'], # file_requests
             'level': 'INFO',
             'propagate': False,
         },
