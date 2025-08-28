@@ -206,14 +206,14 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'detailed',
         },
-        'file_app': {
-            'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'app.log'),
-            'maxBytes': 1024*1024*10,  # 10 MB
-            'backupCount': 5,
-            'formatter': 'verbose',
-        },
+        #'file_app': {
+        #    'level': 'INFO',
+        #    'class': 'logging.handlers.RotatingFileHandler',
+        #    'filename': os.path.join(BASE_DIR, 'logs', 'app.log'),
+        #    'maxBytes': 1024*1024*10,  # 10 MB
+        #    'backupCount': 5,
+        #    'formatter': 'verbose',
+        #},
         'file_errors': {
             'level': 'ERROR',
             'class': 'logging.handlers.RotatingFileHandler',
@@ -233,7 +233,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file_app'],
+            'handlers': ['console'], # file_app
             'level': 'INFO',
             'propagate': False,
         },
@@ -253,33 +253,33 @@ LOGGING = {
             'propagate': False,
         },
         'accounts': {
-            'handlers': ['file_app', 'console'],
+            'handlers': ['console'], # file_app
             'level': 'INFO',
             'propagate': True,
         },
         'core': {
-            'handlers': ['file_app', 'console'],
+            'handlers': ['console'], # file_app
             'level': 'INFO',
             'propagate': True,
         },
         'products': {
-            'handlers': ['file_app', 'console'],
+            'handlers': ['console'], # file_app
             'level': 'INFO',
             'propagate': True,
         },
         'orders': {
-            'handlers': ['file_app', 'console'],
+            'handlers': ['console'], # file_app
             'level': 'INFO',
             'propagate': True,
         },
         'blog': {
-            'handlers': ['file_app', 'console'],
+            'handlers': ['console'], # file_app
             'level': 'INFO',
             'propagate': True,
         },
     },
     'root': {
-        'handlers': ['console', 'file_app'],
+        'handlers': ['console'], # file_app
         'level': 'INFO',
     },
 }
