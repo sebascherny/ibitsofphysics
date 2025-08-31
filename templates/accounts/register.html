@@ -56,17 +56,31 @@
     const toggleBtn = document.getElementById('toggle-code');
     const codeWrapper = document.getElementById('code-wrapper');
     const codeInput = document.getElementById('id_code');
+    
     if (toggleBtn && codeWrapper) {
+      // Set initial button text based on current state
+      const updateButtonText = () => {
+        const isHidden = codeWrapper.classList.contains('d-none');
+        toggleBtn.textContent = isHidden ? 'I have a code' : 'Hide code field';
+      };
+      
+      // Set initial text
+      updateButtonText();
+      
       toggleBtn.addEventListener('click', function() {
         const isHidden = codeWrapper.classList.contains('d-none');
         if (isHidden) {
           codeWrapper.classList.remove('d-none');
+          if (codeInput) {
+            codeInput.focus();
+          }
         } else {
           codeWrapper.classList.add('d-none');
+          if (codeInput) {
+            codeInput.value = ''; // Clear the field when hiding
+          }
         }
-        if (isHidden && codeInput) {
-          codeInput.focus();
-        }
+        updateButtonText();
       });
     }
   })();

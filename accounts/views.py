@@ -6,6 +6,9 @@ from django.db import transaction
 from .models import UserProfile, Code
 from django.contrib.auth.models import User
 from .forms import CustomUserCreationForm, EmailOrUsernameAuthenticationForm
+from django.contrib.auth.views import PasswordChangeView as DjangoPasswordChangeView, PasswordChangeDoneView as DjangoPasswordChangeDoneView
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 import logging
 
 logger = logging.getLogger(__name__)
@@ -83,3 +86,45 @@ def profile_view(request, language):
     profile = UserProfile.objects.get_or_create(user=request.user)[0]
     logger.info(f'User accessed profile: {request.user.username} (ID: {request.user.id}, Language: {language}, Has Paid: {profile.has_paid})')
     return render(request, 'accounts/profile.html', {'profile': profile, 'language': language})
+
+
+class PasswordChangeViewEn(LoginRequiredMixin, DjangoPasswordChangeView):
+    template_name = 'accounts/password_change_form.html'
+    success_url = reverse_lazy('password_change_done')
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['language'] = 'en'
+        logger.info(f'User accessed password change page (EN): {self.request.user.username} (ID: {self.request.user.id})')
+        return ctx
+
+
+class PasswordChangeDoneEn(LoginRequiredMixin, DjangoPasswordChangeDoneView):
+    template_name = 'accounts/password_change_done.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['language'] = 'en'
+        logger.info(f'User completed password change (EN): {self.request.user.username} (ID: {self.request.user.id})')
+        return ctx
+
+
+class PasswordChangeViewEs(LoginRequiredMixin, DjangoPasswordChangeView):
+    template_name = 'accounts/password_change_form.html'
+    success_url = reverse_lazy('password_change_done_es')
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['language'] = 'es'
+        logger.info(f'User accessed password change page (ES): {self.request.user.username} (ID: {self.request.user.id})')
+        return ctx
+
+
+class PasswordChangeDoneEs(LoginRequiredMixin, DjangoPasswordChangeDoneView):
+    template_name = 'accounts/password_change_done.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['language'] = 'es'
+        logger.info(f'User completed password change (ES): {self.request.user.username} (ID: {self.request.user.id})')
+        return ctx

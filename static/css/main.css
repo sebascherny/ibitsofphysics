@@ -88,6 +88,10 @@ footer {
   padding: 1.2rem 0 2rem 0;
 }
 
+.d-none {
+	display: none;
+}
+
 @media (max-width: 600px) {
   main {
     padding: 1rem;

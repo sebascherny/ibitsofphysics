@@ -8,6 +8,16 @@
   {% endif %}
   <p><strong>Username:</strong> {{ profile.user.username }}</p>
   <p><strong>Email:</strong> {{ profile.user.email }}</p>
-  <a href="{% url 'logout' %}" class="btn btn-danger">{% if language == 'es' %}Logout{% else %}Logout{% endif %}</a>
+  <div class="d-flex gap-2 mt-3">
+    {% if language == 'es' %}
+      <a href="{% url 'password_change_es' %}" class="btn btn-primary">Cambiar contraseña</a>
+      <br/>
+      <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+    {% else %}
+      <a href="{% url 'password_change' %}" class="btn btn-primary">Change password</a>
+      <br/>
+      <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
