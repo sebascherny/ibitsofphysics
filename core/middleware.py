@@ -3,8 +3,10 @@ import time
 import json
 from django.utils.deprecation import MiddlewareMixin
 from django.contrib.auth.models import AnonymousUser
+from django.http import HttpResponseNotFound
 
 logger = logging.getLogger('ibitsofphysics.requests')
+security_logger = logging.getLogger('django.security')
 
 
 class RequestLoggingMiddleware(MiddlewareMixin):
@@ -114,3 +116,52 @@ class RequestLoggingMiddleware(MiddlewareMixin):
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+
+
+class SuspiciousPathBlockerMiddleware(MiddlewareMixin):
+    """
+    Blocks common probe/attack paths (e.g., WordPress, env files, admin scanners)
+    early with a 404 and logs a security warning.
+    Place this early in the middleware stack (after SecurityMiddleware).
+    """
+
+    # Exact paths to block
+    BLOCKED_EXACT = {
+        '/wp-login.php',
+        '/xmlrpc.php',
+        '/.env',
+        '/config.php',
+        '/server-status',
+        '/HNAP1/',
+        '/shell',
+        '/vendor/.env',
+        '/actuator/health',
+        '/manager/html',
+    }
+
+    # Prefixes to block
+    BLOCKED_PREFIXES = (
+        '/wp-admin',
+        '/wp-includes',
+        '/wp-content',
+        '/phpmyadmin',
+        '/pma',
+        '/.git',
+    )
+
+    def process_request(self, request):
+        path = request.path
+        # Quick match
+        if path in self.BLOCKED_EXACT or any(path.startswith(p) for p in self.BLOCKED_PREFIXES):
+            client_ip = self._get_client_ip(request)
+            ua = request.META.get('HTTP_USER_AGENT', '')
+            security_logger.warning(
+                f"BLOCKED SUSPICIOUS PATH: {request.method} {path} | IP: {client_ip} | UA: {ua[:80]}..."
+            )
+            return HttpResponseNotFound()
+
+    def _get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            return x_forwarded_for.split(',')[0]
+        return request.META.get('REMOTE_ADDR')
